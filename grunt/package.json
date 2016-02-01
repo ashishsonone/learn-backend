@@ -1,0 +1,17 @@
+{
+  "name": "grunt",
+  "version": "1.0.0",
+  "description": "grunt example",
+  "main": "index.js",
+  "dependencies": {
+    "grunt-cli": "^0.1.13"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.11.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
