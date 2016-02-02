@@ -12,13 +12,15 @@ var userModel = mongoose.model('user', userSchema);
 
 function connectWithRetry(){
     attempting = true;
-    mongoose.connect("mongodb://localhost:27017/delete", {server:{auto_reconnect:false}}, function(err){
+    mongoose.connect("mongodb://localhost:27017/delete", {server:{auto_reconnect:false, socketOptions: {connectTimeoutMS: 5000, socketTimeouMS : 5000}}}, function(err){
         if (err) {
             console.log("(retry in 5s)connectWithRetry error %j", err);
             setTimeout(connectWithRetry, 5000);
         }
     });
 }
+
+mongoose.set('debug', true);
 
 var attempting = true;
 
@@ -62,15 +64,15 @@ db.on('reconnected', function() {
 
 connectWithRetry();
 
-app.use('/', function(req, res){
-    userModel.find({}).exec(function(err, users){
+app.get('/', function(req, res){
+    userModel.find({}).maxTime(5000).exec(function(err, users){
         if(!err){
             res.json(users);
         }
         else{
             res.json({"error" : "db connection error", "debug" : err});
         }
-    })
+    });
 });
 
 app.listen(8003);
