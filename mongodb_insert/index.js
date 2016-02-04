@@ -18,7 +18,7 @@ var newsModel = mongoose.model('News', newsSchema, 'News');
 
 mongoose.connect("mongodb://localhost:27017/NewsDB");
 
-mongoose.set('debug', true);
+//mongoose.set('debug', true);
 
 var EDITORS = ['ashish', 'hardik', 'dhanesh'];
 var UPLOADERS = ['seema', 'abhijeet', 'kansu', 'bahubali', 'raj'];
@@ -27,9 +27,9 @@ var APPROVAL_STATUS = [true, true, true, false];
 var WEEK = 7 * 24 * 60 * 60 * 1000;
 var HOUR = 60 * 60 * 1000;
 
-var NUM_WEEKS = 10;
-var NEWS_PER_WEEK_LL = 10; //lower limit
-var NEWS_PER_WEEK_UL = 25;
+var NUM_WEEKS = 52;
+var NEWS_PER_WEEK_LL = 1000; //lower limit
+var NEWS_PER_WEEK_UL = 2500;
 
 //now = new Date();
 function getRandomItem(array){
@@ -76,12 +76,10 @@ function generateData(){
             }
 
             item.save();
-
-            console.log("%j", item);
-
-            //increment by 1 week
         }
+        //increment by 1 week
         date = new Date(date.getTime() + WEEK);
+        console.log("week " + w + " done");
     }
 }
 
