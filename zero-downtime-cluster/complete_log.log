@@ -1,0 +1,371 @@
+This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+INFO: GET header == 
+---
+GET / HTTP/1.0
+Host: localhost:8003
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:15:57 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-7+o0t8PNsfpiiNU7qPnj1Q"
+Date: Sat, 06 Feb 2016 08:16:07 GMT
+Connection: close
+
+{"msg":"hi 3.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:17 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:27 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:37 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:47 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+LOG: header received:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 16
+ETag: W/"10-yYHpPKUZaQxVxNUzTaLfuQ"
+Date: Sat, 06 Feb 2016 08:16:47 GMT
+Connection: close
+
+{"msg":"hi 4.0"}
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8003
+
+Document Path:          /
+Document Length:        16 bytes
+
+Concurrency Level:      6
+Time taken for tests:   60.133 seconds
+Complete requests:      31
+Failed requests:        0
+Total transferred:      6976 bytes
+HTML transferred:       512 bytes
+Requests per second:    0.52 [#/sec] (mean)
+Time per request:       11638.739 [ms] (mean)
+Time per request:       1939.790 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.11 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.2      0       1
+Processing: 10003 10024  16.3  10017   10048
+Waiting:    10003 10022  15.9  10012   10045
+Total:      10003 10025  16.4  10017   10048
+
+Percentage of the requests served within a certain time (ms)
+  50%  10017
+  66%  10039
+  75%  10042
+  80%  10042
+  90%  10048
+  95%  10048
+  98%  10048
+  99%  10048
+ 100%  10048 (longest request)

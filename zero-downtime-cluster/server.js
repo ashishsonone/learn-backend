@@ -15,7 +15,7 @@ app.get('/', function(req, res){
     log();
     setTimeout(
         function(){
-            res.json({msg : "hi"});
+            res.json({msg : "hi 4.0"});
             served++;
             log();
         },
