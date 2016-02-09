@@ -3,15 +3,17 @@ var fs = require('fs');
 var RSVP = require('rsvp');
 
 function parse(data){
-    return new RSVP.Promise(function(fulfill, reject){
-        console.log("here");
-        try{
-            var x = JSON.parse(data);
-            fulfill(x);
+    return RSVP.Promise.resolve().then(
+        function(){
+            return JSON.parse(data);
         }
-        catch(e){
-            reject("parse error");
-        }
+    ).then(function wait(data){
+        console.log("wait data=" + data);
+        return new RSVP.Promise(function(f, r){
+            setTimeout(function(){
+                f(data);
+            }, 3000);
+        });
     });
 }
 
