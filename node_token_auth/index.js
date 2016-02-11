@@ -6,6 +6,30 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
+//enable CORS
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', req.headers.origin); //origins allowed for request, dynamically set to request's origin
+  res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS, PATCH, PUT'); //type of methods allowed
+  res.header('Access-Control-Allow-Headers', 'x-session-token, accept'); //allow headers
+  res.header('Access-Control-Allow-Credentials', true); //allow cookie to be sent
+  var method = req.method && req.method.toUpperCase && req.method.toUpperCase();
+  if(method === 'OPTIONS'){
+      res.status(204);
+      res.end();
+      return;
+  }
+  next();
+});
+
+app.use('/', function(req, res, next){
+    console.log("%j", req.headers);
+    console.log("%j", req.body);
+    console.log("%j", req.params);
+    console.log("%j", req.query);
+    console.log("Header X-Session-Token : " + req.get('x-session-token')); //use req.get for case insensitive access to header field
+    next();
+});
+
 var users = [
     {'email' : 'ashish@trumplab.com', 'password' : 'qwerty'},
     {'email' : 'hardik@trumplab.com', 'password' : 'kuchbhi'}
@@ -32,16 +56,6 @@ function destroySessionToken(token){
 
 app.get('/admin/tokens', function(req, res){
     res.json(tokens);
-});
-
-app.post('/admin/:username', function(req, res){
-    console.log("%j", req.headers);
-    console.log("%j", req.body);
-    console.log("%j", req.params);
-    console.log("%j", req.query);
-    console.log("Header X-Session-Token : " + req.get('X-Session-Token')); //use req.get for case insensitive access to header field
-    console.log("Body token : " + req.get('token'));
-    res.json({success : true});
 });
 
 
