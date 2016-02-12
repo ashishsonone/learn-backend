@@ -1,0 +1,17 @@
+<h4>This is an example of upload to a public-read-write enabled bucket as anonymous user</h4>
+<form action="https://public-node-1189.storage.googleapis.com" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="key" value="public-2">
+	<input type="hidden" name="bucket" value="public-node-1189">
+	<!-- <input type="hidden" name="GoogleAccessId" value="<%=fields.GoogleAccessId%>"> Req only if policy specified-->
+	<!-- <input type="hidden" name="policy" value="<%=fields.policy%>"> NOT req for Anonymous upload to public-read-write buckets -->
+	<!-- <input type="hidden" name="signature" value="<%=fields.signature%>"> Req only if policy specified-->
+	<!-- <input type="hidden" name="Content-Type" value="<%=fields['Content-Type']%>"> defaults to binary/octet-stream -->
+    <!-- <input type="hidden" name="acl" value="<%=fields['acl']%>"> defaults to object-default-permission for the bucket -->
+
+	<input name="file" type="file">
+	<input type="submit" value="Upload">
+</form>
+
+<br />
+
+<a href="https://public-node-1189.storage.googleapis.com/public-2" target="_new">View https://public-node-1189.storage.googleapis.com/public-2</a>
