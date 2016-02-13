@@ -1,7 +1,7 @@
-<h4>This is an example of upload to a public-read-write enabled bucket as anonymous user</h4>
-<form action="https://public-node-1189.storage.googleapis.com" method="post" enctype="multipart/form-data">
-	<input type="hidden" name="key" value="public-2">
-	<input type="hidden" name="bucket" value="public-node-1189">
+<h4>This is an example of upload to a Google Cloud Storage public-read-write enabled bucket as anonymous user. Here 'public-node-1189' is the name of the bucket. Remaining portion corresponds to image 'public-3.jpg' within the directory 'news'. So when uploading, give a unique name to the file and generate this url.</h4>
+<form action="https://storage.googleapis.com/public-node-1189/news-images/public-1.jpg" method="post" enctype="multipart/form-data">
+	<!-- <input type="hidden" name="key" value="public-3.jpg"> -->
+	<!-- <input type="hidden" name="bucket" value="public-node-1189">-->
 	<!-- <input type="hidden" name="GoogleAccessId" value="<%=fields.GoogleAccessId%>"> Req only if policy specified-->
 	<!-- <input type="hidden" name="policy" value="<%=fields.policy%>"> NOT req for Anonymous upload to public-read-write buckets -->
 	<!-- <input type="hidden" name="signature" value="<%=fields.signature%>"> Req only if policy specified-->
@@ -14,4 +14,4 @@
 
 <br />
 
-<a href="https://public-node-1189.storage.googleapis.com/public-2" target="_new">View https://public-node-1189.storage.googleapis.com/public-2</a>
+<a href="https://storage.googleapis.com/public-node-1189/news-images/public-1.jpg">View https://storage.googleapis.com/public-node-1189/news-images/public-1.jpg</a>
