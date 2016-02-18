@@ -1,8 +1,21 @@
+//Since we're using redis as cache, disble disk persistence for redis server, for faster performance
+//Run redis-server  --save ""
+// --maxmemory 100mb
+// --maxmemory-policy volatile-ttl //remove the key with the nearest expire time (minor TTL)
 var express = require('express');
 var Redis = require('ioredis');
 var redis = new Redis({
     port : 6379,
-    db : 1 //databases are identified by integer numbers, default is 0
+    db : 1, //databases are identified by integer numbers, default is 0
+    //showFriendlyErrorStack: true //for show stacktraces with where in our code it occured, You shouldn't use this feature in a production environment.
+});
+
+Redis.Promise.onPossiblyUnhandledRejection(function (error) {
+    console.log(error);
+    // to produce error use redis.set('foo')
+    // you can log the error here.
+    // error.command.name is the command name, here is 'set'
+    // error.command.args is the command arguments, here is ['foo']
 });
 
 var Promise = require('bluebird');
@@ -27,7 +40,7 @@ function getBook(id){
     return new Promise(function(resolve, reject){
         setTimeout(function(){
             resolve(books[id]);
-        }, 2000);
+        }, 50);
     });
 }
 
@@ -70,7 +83,9 @@ function fetchAndSendBook(id, res){
         if(result){
             console.log("db reponse " + result + " & put in cache with expiry 20s");
             //put in cache and set expiry all with one command
-            redis.set('/books/' + id, result, 'ex', 20);
+            redis.set('/books/' + id, result, 'ex', 20, function(err, result){
+                console.log("redis.set " + id + " : " + err + " " + result);
+            });
             return res.json(result);
         }
         else{
@@ -81,10 +96,15 @@ function fetchAndSendBook(id, res){
 }
 
 //setting key-value and ttl in one command | using promises (ioredis uses bluebird)
+//if redis.status == 'ready' only then use it, otherwise if its 'reconnecting' or something, directly use DB
 app.get('/books/:id', function(req, res){
     var id = req.params.id;
     var redisKey = '/books/' + id;
-    var p = redis.get(redisKey);
+    console.log("redis.status " + redis.status);
+    var p = Promise.resolve(null); //default if redis not connected
+    if(redis.status === 'ready'){
+        p = redis.get(redisKey);
+    }
     p = p.then(function(result){
         if(result){
             console.log("redis response " + result)
