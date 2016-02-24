@@ -18,18 +18,56 @@ function connect(){
     });
 }
 
+var stopping = false;
+var stopped = true;
+
+var connected = true;
 var attempting = false;
 mongoose.connection.on('disconnected', function(){
-    console.log('----> stop listening');
-    server.close(); //stop listening
+    connected = false;
+    if(stopping){
+        console.log('----> already pending stop or already ');
+    }
+    else if(stopped){
+        console.log('----> server already stopped');
+    }
+
+    else if(!stopping && !stopped){
+        console.log('----> setTimeout stop request');
+        stopping = true;
+        setTimeout(function(){
+            if(!connected){
+                console.log('----> stop request');
+                server.close(function(err, res){
+                    stopping = false;
+                    stopped = true;
+                    console.log('----> stop callback %j, %j', err, res);
+                });
+            }
+            else{
+                stopping = false;
+            }
+            //stop listening after waiting for few allowable 'seconds' 
+            //because if there is a temporary network disruption, 
+            //during that time we can allow commands to buffer
+            //so that requests won't fail
+        }, 10000);
+    }
     if(!attempting){
         connect();
     }
 });
 
 mongoose.connection.on('connected', function(){
-    console.log('----> start listening');
-    server.listen(8999);
+    connected = true;
+    stopping = false;
+    console.log('----> start request listening');
+    server.listen(8999, function(err, result){
+        if(!err){
+            stopped = false;
+            console.log('----> start callback listening');
+        }
+    });
     attempting = false;
 });
 
@@ -46,7 +84,6 @@ var server = http.createServer(function(req, res){
         res.end('error');
     });
 });
-server.listen(8999);
 
 var NewsSchema = mongoose.Schema({
     status : String,
