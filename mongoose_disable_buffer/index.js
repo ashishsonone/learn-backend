@@ -20,12 +20,16 @@ function connect(){
 
 var attempting = false;
 mongoose.connection.on('disconnected', function(){
+    console.log('----> stop listening');
+    server.close(); //stop listening
     if(!attempting){
         connect();
     }
 });
 
 mongoose.connection.on('connected', function(){
+    console.log('----> start listening');
+    server.listen(8999);
     attempting = false;
 });
 
