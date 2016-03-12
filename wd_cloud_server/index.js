@@ -29,7 +29,10 @@ app.use('/', function(req, res){
         console.log("files=" + files);
 
         var hrefBase = subPath.slice(1);
-        console.log("hrefBase is=" + hrefBase);
+        console.log("hrefBase is='" + hrefBase + "'");
+        if(hrefBase !== ''){
+            hrefBase += '/';
+        }
         res.render('pages/index', {files : files, base : hrefBase});
     });
 
