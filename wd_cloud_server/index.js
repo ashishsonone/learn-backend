@@ -1,6 +1,16 @@
 "use strict"
 var express = require('express');
+var http = require('http');
+
 var app = express();
+var server = http.Server(app)
+var io = require("socket.io")(server);
+
+io.on("connection", function (socket) {
+    // we've got a client connection
+    console.log("---> " + "connection received");
+    socket.emit("tweet", {user: "nodesource", text: "Hello, world!"});
+});
 
 app.set('view engine', 'ejs');
 
@@ -8,7 +18,7 @@ var ssh = require('./ssh');
 
 var baseFolder = '/home/ashish/Desktop';
 
-app.use('/', function(req, res){
+app.use('/browse', function(req, res){
     console.log("url is " + req.url);
     var subPath = decodeURI(req.url);
     var completePath = baseFolder + subPath;
@@ -29,10 +39,8 @@ app.use('/', function(req, res){
         console.log("files=" + files);
 
         var hrefBase = subPath.slice(1);
+        hrefBase = '/browse/' + hrefBase;
         console.log("hrefBase is='" + hrefBase + "'");
-        if(hrefBase !== ''){
-            hrefBase += '/';
-        }
         res.render('pages/index', {files : files, base : hrefBase});
     });
 
@@ -42,5 +50,5 @@ app.use('/', function(req, res){
     });
 });
 
-app.listen(8000);
-console.log("listening on 8000");
+server.listen(3000);
+console.log("listening on 3000");
