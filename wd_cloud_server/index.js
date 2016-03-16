@@ -1,6 +1,7 @@
 "use strict"
 var express = require('express');
 var http = require('http');
+var ssh = require('./ssh');
 
 var app = express();
 var server = http.Server(app)
@@ -9,12 +10,14 @@ var io = require("socket.io")(server);
 io.on("connection", function (socket) {
     // we've got a client connection
     console.log("---> " + "connection received");
-    socket.emit("tweet", {user: "nodesource", text: "Hello, world!"});
+    socket.on('command', function(command){
+        console.log("command #" + command);
+        socket.emit('response', '<b>ack</b> for ' + command);
+        ssh.execCommandWithSocket(command, socket);
+    });
 });
 
 app.set('view engine', 'ejs');
-
-var ssh = require('./ssh');
 
 var baseFolder = '/home/ashish/Desktop';
 
