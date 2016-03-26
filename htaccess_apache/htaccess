@@ -1,0 +1,29 @@
+# BlueHost.com 
+# .htaccess main domain to subdirectory redirect 
+# Do not change this line. 
+RewriteEngine on
+
+#Force https for preppo.in domain
+RewriteCond %{HTTP_HOST} ^(www.)?preppo.in$
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#add trailing slash 
+RewriteCond %{HTTP_HOST} ^(www.)?preppo.in$
+#no trailing slash present
+RewriteCond %{REQUEST_URI} !(.*)/$
+#without extension i.e not requesting a file
+RewriteCond %{REQUEST_URI} !\.(.+)$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301,END]
+
+# Change example.com to be your main domain again. 
+# Change 'subdirectory' to be the directory you will use for your main domain 
+# followed by / then the main file for your site, index.php, index.html, etc. 
+RewriteCond %{HTTP_HOST} ^(www.)?preppo.in$ 
+RewriteRule ^(/)?$ home/index.html [L]
+
+# Change example.com to be your main domain. 
+RewriteCond %{HTTP_HOST} ^(www.)?preppo.in$
+RewriteCond %{REQUEST_URI} !^/home/ 
+# Change 'subdirectory' to be the directory you will use for your main domain. 
+RewriteRule ^(.*)$ home/$1 [L]
