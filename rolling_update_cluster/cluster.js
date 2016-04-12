@@ -11,6 +11,10 @@ cluster.setupMaster(
     }
 );
 
+var exitPending = {}; // we have called worker.disconnect()
+                      // but 'exit' event for that worker not yet received by master
+                      // { <worker.id> : true } mapping
+
 cluster.on('listening', (worker, address) => {
     console.log("#M : worker #" + worker.id + " listening. stop/upgrade any pending workers");
     stopNextWorker();
@@ -25,15 +29,22 @@ cluster.on('disconnect', (worker) => {
 });
 
 cluster.on('exit', (worker, code, signal) => {
+  // set timeout of 1 sec so that if some error occurs,
+  // it doesnot hog the cpu due to very frequent exit and fork events
+  setTimeout(function(){
     if(worker.suicide == true){
-        console.log("#M suidice by #" + worker.id + ", code=" + code + ", signal=" + signal + ". spawning upgraded worker");
-        cluster.fork();
+      console.log("#M suidice by #" + worker.id + ", code=" + code + ", signal=" + signal + ". spawning upgraded worker");
+      console.log("#M : for #" + worker.id + " exitPending=" + exitPending[worker.id]);
+      delete exitPending[worker.id];
+      cluster.fork();
     }
     else{
-        console.log("#M murder of #" + worker.id + ", code=" + code + ", signal=" + signal);
-        console.log("#M spawning another worker");
-        cluster.fork();
+      console.log("#M murder of #" + worker.id + ", code=" + code + ", signal=" + signal);
+      console.log("#M spawning another worker");
+      cluster.fork();
     }
+  },
+  1000);
 });
 
 function forkNew(){
@@ -45,11 +56,11 @@ function forkNew(){
 function stopWorker(worker){
     console.log("#M stopWorker : stoppping worker #" + worker.id);
     worker.disconnect();
+    exitPending[worker.id] = true;
+
     killTimer = setTimeout(
         function(){
-            var x = cluster.workers[worker.id];
-            console.log("#M stopWorker timeout : worker #" + worker.id + " already exited");
-            if(x != null){
+            if(exitPending[worker.id]){
                 console.log("#M stopWorker : killing worker #" + worker.id + " as it didnot exit in " + timeout + " s");
                 worker.kill();
             }

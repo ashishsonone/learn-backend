@@ -1,0 +1,208 @@
+db connecting
+#S: requestLocation=24341027
+#S: pid=32564
+db connected
+#S: 1|0|0
+#S: 1|1|0
+#S|S-1|NaN
+#S|S-1|teacher responding #fast-1
+#S|S-1|snapshot=fast-1|responses.length=1
+#S|S-1|teacher responding #slow-1
+#S|S-1|snapshot=slow-1|responses.length=2
+#S|S-1|teacher responding #fast-2
+#S|S-1|snapshot=fast-2|responses.length=3
+#S: 2|1|0
+#S: 2|2|0
+#S|S-2|NaN
+#S|S-1|teacher responding #fast-3
+#S|S-1|snapshot=fast-3|responses.length=4
+#S|S-2|teacher responding #fast-1
+#S|S-2|snapshot=fast-1|responses.length=1
+#S|S-1|teacher responding #slow-2
+#S|S-1|snapshot=slow-2|responses.length=5
+#S|S-1|teacher responding #fast-4
+#S|S-1|snapshot=fast-4|responses.length=6
+#S|S-2|teacher responding #slow-1
+#S|S-2|snapshot=slow-1|responses.length=2
+#S|S-2|teacher responding #fast-2
+#S|S-2|snapshot=fast-2|responses.length=3
+#S|S-1|teacher responding #fast-5
+#S|S-1|snapshot=fast-5|responses.length=7
+#S|S-2|teacher responding #fast-3
+#S|S-2|snapshot=fast-3|responses.length=4
+#S|S-1|teacher responding #slow-3
+#S|S-1|snapshot=slow-3|responses.length=8
+#S|S-1|teacher responding #fast-6
+#S|S-1|snapshot=fast-6|responses.length=9
+#S|S-2|teacher responding #slow-2
+#S|S-2|snapshot=slow-2|responses.length=5
+#S|S-2|teacher responding #fast-4
+#S|S-2|snapshot=fast-4|responses.length=6
+#S|S-1|teacher responding #fast-7
+#S|S-1|snapshot=fast-7|responses.length=10
+#S: 3|2|0
+#S: 3|3|0
+#S|S-3|NaN
+#S|S-2|teacher responding #fast-5
+#S|S-2|snapshot=fast-5|responses.length=7
+#S|S-1|teacher responding #slow-4
+#S|S-1|snapshot=slow-4|responses.length=11
+#S|S-1|teacher responding #fast-8
+#S|S-1|snapshot=fast-8|responses.length=12
+#S|S-3|teacher responding #fast-1
+#S|S-3|snapshot=fast-1|responses.length=1
+#S|S-2|teacher responding #slow-3
+#S|S-2|snapshot=slow-3|responses.length=8
+#S|S-2|teacher responding #fast-6
+#S|S-2|snapshot=fast-6|responses.length=9
+#S|S-3|teacher responding #slow-1
+#S|S-3|snapshot=slow-1|responses.length=2
+#S|S-1|teacher responding #fast-9
+#S|S-1|snapshot=fast-9|responses.length=13
+#S|S-3|teacher responding #fast-2
+#S|S-3|snapshot=fast-2|responses.length=3
+#S|S-2|teacher responding #fast-7
+#S|S-2|snapshot=fast-7|responses.length=10
+#S|S-1|teacher responding #slow-5
+#S|S-1|snapshot=slow-5|responses.length=14
+#S|S-1|teacher responding #fast-10
+#S|S-1|snapshot=fast-10|responses.length=15
+#S|S-3|teacher responding #fast-3
+#S|S-3|snapshot=fast-3|responses.length=4
+#S|S-2|teacher responding #slow-4
+#S|S-2|snapshot=slow-4|responses.length=11
+#S|S-2|teacher responding #fast-8
+#S|S-2|snapshot=fast-8|responses.length=12
+#S|S-3|teacher responding #slow-2
+#S|S-3|snapshot=slow-2|responses.length=5
+#S|S-1|teacher responding #fast-11
+#S|S-1|snapshot=fast-11|responses.length=16
+#S|S-3|teacher responding #fast-4
+#S|S-3|snapshot=fast-4|responses.length=6
+#S|S-2|teacher responding #fast-9
+#S|S-2|snapshot=fast-9|responses.length=13
+#S|S-1|teacher responding #slow-6
+#S|S-1|snapshot=slow-6|responses.length=17
+#S|S-1|teacher responding #fast-12
+#S|S-1|snapshot=fast-12|responses.length=18
+#S|S-3|teacher responding #fast-5
+#S|S-3|snapshot=fast-5|responses.length=7
+#S|S-2|teacher responding #slow-5
+#S|S-2|snapshot=slow-5|responses.length=14
+#S|S-2|teacher responding #fast-10
+#S|S-2|snapshot=fast-10|responses.length=15
+#S|S-3|teacher responding #slow-3
+#S|S-3|snapshot=slow-3|responses.length=8
+#S|S-1|teacher responding #fast-13
+#S|S-1|snapshot=fast-13|responses.length=19
+#S|S-3|teacher responding #fast-6
+#S|S-3|snapshot=fast-6|responses.length=9
+#S|S-2|teacher responding #fast-11
+#S|S-2|snapshot=fast-11|responses.length=16
+#S|S-1|teacher responding #slow-7
+#S|S-1|snapshot=slow-7|responses.length=20
+#S|S-1|teacher responding #fast-14
+#S|S-1|snapshot=fast-14|responses.length=21
+#S|S-3|teacher responding #fast-7
+#S|S-3|snapshot=fast-7|responses.length=10
+#S|S-2|teacher responding #slow-6
+#S|S-2|snapshot=slow-6|responses.length=17
+#S|S-2|teacher responding #fast-12
+#S|S-2|snapshot=fast-12|responses.length=18
+#S|S-3|teacher responding #slow-4
+#S|S-3|snapshot=slow-4|responses.length=11
+#S|S-1|teacher responding #fast-15
+#S|S-1|snapshot=fast-15|responses.length=22
+#S|S-3|teacher responding #fast-8
+#S|S-3|snapshot=fast-8|responses.length=12
+#S|S-2|teacher responding #fast-13
+#S|S-2|snapshot=fast-13|responses.length=19
+#S|S-1|teacher responding #slow-8
+#S|S-1|snapshot=slow-8|responses.length=23
+#S|S-1|clearing responseMimicTimerFast
+#S|S-3|teacher responding #fast-9
+#S|S-3|snapshot=fast-9|responses.length=13
+#S|S-2|teacher responding #slow-7
+#S|S-2|snapshot=slow-7|responses.length=20
+#S|S-2|teacher responding #fast-14
+#S|S-2|snapshot=fast-14|responses.length=21
+#S|S-3|teacher responding #slow-5
+#S|S-3|snapshot=slow-5|responses.length=14
+#S|S-3|teacher responding #fast-10
+#S|S-3|snapshot=fast-10|responses.length=15
+#S|S-2|teacher responding #fast-15
+#S|S-2|snapshot=fast-15|responses.length=22
+#S|S-1|teacher responding #slow-9
+#S|S-1|snapshot=slow-9|responses.length=24
+#S|S-3|teacher responding #fast-11
+#S|S-3|snapshot=fast-11|responses.length=16
+#S|S-2|teacher responding #slow-8
+#S|S-2|snapshot=slow-8|responses.length=23
+#S|S-2|clearing responseMimicTimerFast
+#S|S-3|teacher responding #slow-6
+#S|S-3|snapshot=slow-6|responses.length=17
+#S|S-3|teacher responding #fast-12
+#S|S-3|snapshot=fast-12|responses.length=18
+#S|S-1|selecting teachers out of 24 teachers
+#S|S-1|stopped accepting any more responses == window closed
+#S|S-1|teacher responding #slow-10
+#S|S-3|teacher responding #fast-13
+#S|S-3|snapshot=fast-13|responses.length=19
+#S|S-2|teacher responding #slow-9
+#S|S-2|snapshot=slow-9|responses.length=24
+#S|S-3|teacher responding #slow-7
+#S|S-3|snapshot=slow-7|responses.length=20
+#S|S-3|teacher responding #fast-14
+#S|S-3|snapshot=fast-14|responses.length=21
+#S|S-1|teacher responding #slow-11
+#S|S-3|teacher responding #fast-15
+#S|S-3|snapshot=fast-15|responses.length=22
+#S|S-2|selecting teachers out of 24 teachers
+#S|S-2|stopped accepting any more responses == window closed
+#S|S-2|teacher responding #slow-10
+#S|S-3|teacher responding #slow-8
+#S|S-3|snapshot=slow-8|responses.length=23
+#S|S-3|clearing responseMimicTimerFast
+#S|S-1|teacher responding #slow-12
+#S|S-2|teacher responding #slow-11
+#S|S-3|teacher responding #slow-9
+#S|S-3|snapshot=slow-9|responses.length=24
+#S|S-1|teacher responding #slow-13
+#S|S-1|selected teacher #slow-2
+#S: 3|3|1
+#S|S-2|teacher responding #slow-12
+#S|S-3|selecting teachers out of 24 teachers
+#S|S-3|stopped accepting any more responses == window closed
+#S|S-3|teacher responding #slow-10
+#S|S-1|teacher responding #slow-14
+#S|S-2|teacher responding #slow-13
+#S|S-3|teacher responding #slow-11
+#S|S-2|selected teacher #slow-7
+#S: 3|3|2
+#S|S-1|teacher responding #slow-15
+#S|S-2|teacher responding #slow-14
+#S|S-3|teacher responding #slow-12
+#S|S-1|teacher responding #slow-16
+#S|S-2|teacher responding #slow-15
+#S|S-3|teacher responding #slow-13
+#S|S-3|selected teacher #fast-5
+#S: 3|3|3
+#S|S-1|teacher responding #slow-17
+#S|S-2|teacher responding #slow-16
+#S|S-3|teacher responding #slow-14
+#S|S-1|teacher responding #slow-18
+#S|S-2|teacher responding #slow-17
+#S|S-3|teacher responding #slow-15
+#S|S-1|teacher responding #slow-19
+#S|S-2|teacher responding #slow-18
+#S|S-3|teacher responding #slow-16
+#S|S-1|teacher responding #slow-20
+#S|S-2|teacher responding #slow-19
+#S|S-3|teacher responding #slow-17
+#S|S-1|clearing responseMimicTimerSlow
+#S|S-2|teacher responding #slow-20
+#S|S-3|teacher responding #slow-18
+#S|S-2|clearing responseMimicTimerSlow
+#S|S-3|teacher responding #slow-19
+#S|S-3|teacher responding #slow-20
+#S|S-3|clearing responseMimicTimerSlow

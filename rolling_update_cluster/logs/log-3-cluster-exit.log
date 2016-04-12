@@ -1,0 +1,903 @@
+#M pid=1596
+db connecting
+db connecting
+#S: requestLocation=24341043
+#1: pid=1602
+db connected
+#M : worker #1 listening. stop/upgrade any pending workers
+#M stopNextWorker : nothing to stop
+#S: requestLocation=24341043
+#2: pid=1607
+#M : worker #2 listening. stop/upgrade any pending workers
+#M stopNextWorker : nothing to stop
+db connected
+#1: 1|0|0
+#1: 1|1|0
+#1|1-1|NaN
+#1|1-1|teacher responding #fast-1
+#1|1-1|snapshot=fast-1|responses.length=1
+#1|1-1|teacher responding #slow-1
+#1|1-1|snapshot=slow-1|responses.length=2
+#1|1-1|teacher responding #fast-2
+#1|1-1|snapshot=fast-2|responses.length=3
+#2: 1|0|0
+#2: 1|1|0
+#2|2-1|NaN
+#1|1-1|teacher responding #fast-3
+#1|1-1|snapshot=fast-3|responses.length=4
+#2|2-1|teacher responding #fast-1
+#2|2-1|snapshot=fast-1|responses.length=1
+#1: 2|1|0
+#1: 2|2|0
+#1|1-2|NaN
+#1|1-1|teacher responding #slow-2
+#1|1-1|snapshot=slow-2|responses.length=5
+#1|1-1|teacher responding #fast-4
+#1|1-1|snapshot=fast-4|responses.length=6
+#2|2-1|teacher responding #slow-1
+#2|2-1|snapshot=slow-1|responses.length=2
+#2|2-1|teacher responding #fast-2
+#2|2-1|snapshot=fast-2|responses.length=3
+#1|1-2|teacher responding #fast-1
+#1|1-2|snapshot=fast-1|responses.length=1
+#1|1-1|teacher responding #fast-5
+#1|1-1|snapshot=fast-5|responses.length=7
+#2|2-1|teacher responding #fast-3
+#2|2-1|snapshot=fast-3|responses.length=4
+#2: 2|1|0
+#2: 2|2|0
+#2|2-2|NaN
+#1|1-2|teacher responding #slow-1
+#1|1-2|snapshot=slow-1|responses.length=2
+#1|1-2|teacher responding #fast-2
+#1|1-2|snapshot=fast-2|responses.length=3
+#1|1-1|teacher responding #slow-3
+#1|1-1|snapshot=slow-3|responses.length=8
+#1|1-1|teacher responding #fast-6
+#1|1-1|snapshot=fast-6|responses.length=9
+#2|2-1|teacher responding #slow-2
+#2|2-1|snapshot=slow-2|responses.length=5
+#2|2-1|teacher responding #fast-4
+#2|2-1|snapshot=fast-4|responses.length=6
+#2|2-2|teacher responding #fast-1
+#2|2-2|snapshot=fast-1|responses.length=1
+#1|1-2|teacher responding #fast-3
+#1|1-2|snapshot=fast-3|responses.length=4
+#1|1-1|teacher responding #fast-7
+#1|1-1|snapshot=fast-7|responses.length=10
+#2|2-1|teacher responding #fast-5
+#2|2-1|snapshot=fast-5|responses.length=7
+#2|2-2|teacher responding #slow-1
+#2|2-2|snapshot=slow-1|responses.length=2
+#2|2-2|teacher responding #fast-2
+#2|2-2|snapshot=fast-2|responses.length=3
+#1|1-2|teacher responding #slow-2
+#1|1-2|snapshot=slow-2|responses.length=5
+#1|1-2|teacher responding #fast-4
+#1|1-2|snapshot=fast-4|responses.length=6
+#1|1-1|teacher responding #slow-4
+#1|1-1|snapshot=slow-4|responses.length=11
+#1|1-1|teacher responding #fast-8
+#1|1-1|snapshot=fast-8|responses.length=12
+#2|2-1|teacher responding #slow-3
+#2|2-1|snapshot=slow-3|responses.length=8
+#2|2-1|teacher responding #fast-6
+#2|2-1|snapshot=fast-6|responses.length=9
+#2|2-2|teacher responding #fast-3
+#2|2-2|snapshot=fast-3|responses.length=4
+#1|1-2|teacher responding #fast-5
+#1|1-2|snapshot=fast-5|responses.length=7
+#1|1-1|teacher responding #fast-9
+#1|1-1|snapshot=fast-9|responses.length=13
+#2|2-1|teacher responding #fast-7
+#2|2-1|snapshot=fast-7|responses.length=10
+#2|2-2|teacher responding #slow-2
+#2|2-2|snapshot=slow-2|responses.length=5
+#2|2-2|teacher responding #fast-4
+#2|2-2|snapshot=fast-4|responses.length=6
+#1|1-2|teacher responding #slow-3
+#1|1-2|snapshot=slow-3|responses.length=8
+#1|1-2|teacher responding #fast-6
+#1|1-2|snapshot=fast-6|responses.length=9
+#1|1-1|teacher responding #slow-5
+#1|1-1|snapshot=slow-5|responses.length=14
+#1|1-1|teacher responding #fast-10
+#1|1-1|snapshot=fast-10|responses.length=15
+#2|2-1|teacher responding #slow-4
+#2|2-1|snapshot=slow-4|responses.length=11
+#1: 3|2|0
+#1: 3|3|0
+#1|1-3|NaN
+#2|2-1|teacher responding #fast-8
+#2|2-1|snapshot=fast-8|responses.length=12
+#2|2-2|teacher responding #fast-5
+#2|2-2|snapshot=fast-5|responses.length=7
+#1|1-2|teacher responding #fast-7
+#1|1-2|snapshot=fast-7|responses.length=10
+#1|1-1|teacher responding #fast-11
+#1|1-1|snapshot=fast-11|responses.length=16
+#1|1-3|teacher responding #fast-1
+#1|1-3|snapshot=fast-1|responses.length=1
+#2|2-1|teacher responding #fast-9
+#2|2-1|snapshot=fast-9|responses.length=13
+#2|2-2|teacher responding #slow-3
+#2|2-2|snapshot=slow-3|responses.length=8
+#2|2-2|teacher responding #fast-6
+#2|2-2|snapshot=fast-6|responses.length=9
+#1|1-2|teacher responding #slow-4
+#1|1-2|snapshot=slow-4|responses.length=11
+#1|1-2|teacher responding #fast-8
+#1|1-2|snapshot=fast-8|responses.length=12
+#1|1-1|teacher responding #slow-6
+#1|1-1|snapshot=slow-6|responses.length=17
+#1|1-1|teacher responding #fast-12
+#1|1-1|snapshot=fast-12|responses.length=18
+#2|2-1|teacher responding #slow-5
+#2|2-1|snapshot=slow-5|responses.length=14
+#1|1-3|teacher responding #slow-1
+#1|1-3|snapshot=slow-1|responses.length=2
+#1|1-3|teacher responding #fast-2
+#1|1-3|snapshot=fast-2|responses.length=3
+#2|2-1|teacher responding #fast-10
+#2|2-1|snapshot=fast-10|responses.length=15
+#2|2-2|teacher responding #fast-7
+#2|2-2|snapshot=fast-7|responses.length=10
+#1|1-2|teacher responding #fast-9
+#1|1-2|snapshot=fast-9|responses.length=13
+#1|1-1|teacher responding #fast-13
+#1|1-1|snapshot=fast-13|responses.length=19
+#1|1-3|teacher responding #fast-3
+#1|1-3|snapshot=fast-3|responses.length=4
+#2|2-1|teacher responding #fast-11
+#2|2-1|snapshot=fast-11|responses.length=16
+#2|2-2|teacher responding #slow-4
+#2|2-2|snapshot=slow-4|responses.length=11
+#2|2-2|teacher responding #fast-8
+#2|2-2|snapshot=fast-8|responses.length=12
+#1|1-2|teacher responding #slow-5
+#1|1-2|snapshot=slow-5|responses.length=14
+#1|1-2|teacher responding #fast-10
+#1|1-2|snapshot=fast-10|responses.length=15
+#1|1-1|teacher responding #slow-7
+#1|1-1|snapshot=slow-7|responses.length=20
+#1|1-1|teacher responding #fast-14
+#1|1-1|snapshot=fast-14|responses.length=21
+#2|2-1|teacher responding #slow-6
+#1|1-3|teacher responding #slow-2
+#2|2-1|snapshot=slow-6|responses.length=17
+#1|1-3|snapshot=slow-2|responses.length=5
+#1|1-3|teacher responding #fast-4
+#1|1-3|snapshot=fast-4|responses.length=6
+#2|2-1|teacher responding #fast-12
+#2|2-1|snapshot=fast-12|responses.length=18
+#2|2-2|teacher responding #fast-9
+#2|2-2|snapshot=fast-9|responses.length=13
+#1|1-2|teacher responding #fast-11
+#1|1-2|snapshot=fast-11|responses.length=16
+#2: 3|2|0
+#2: 3|3|0
+#2|2-3|NaN
+#1|1-1|teacher responding #fast-15
+#1|1-1|snapshot=fast-15|responses.length=22
+#1|1-3|teacher responding #fast-5
+#1|1-3|snapshot=fast-5|responses.length=7
+#2|2-1|teacher responding #fast-13
+#2|2-1|snapshot=fast-13|responses.length=19
+#2|2-2|teacher responding #slow-5
+#2|2-2|snapshot=slow-5|responses.length=14
+#2|2-2|teacher responding #fast-10
+#2|2-2|snapshot=fast-10|responses.length=15
+#1|1-2|teacher responding #slow-6
+#1|1-2|snapshot=slow-6|responses.length=17
+#M SIGHUP received workersToStop=1,2
+#M stopNextWorker : stopping #2
+#M stopWorker : stoppping worker #2
+#2: disconnect message received
+#M worker #2 disconnected
+#1|1-2|teacher responding #fast-12
+#1|1-2|snapshot=fast-12|responses.length=18
+#2|2-3|teacher responding #fast-1
+#2|2-3|snapshot=fast-1|responses.length=1
+#1|1-1|teacher responding #slow-8
+#1|1-1|snapshot=slow-8|responses.length=23
+#1|1-1|clearing responseMimicTimerFast
+#2|2-1|teacher responding #slow-7
+#2|2-1|snapshot=slow-7|responses.length=20
+#1|1-3|teacher responding #slow-3
+#1|1-3|snapshot=slow-3|responses.length=8
+#1|1-3|teacher responding #fast-6
+#1|1-3|snapshot=fast-6|responses.length=9
+#2|2-1|teacher responding #fast-14
+#2|2-1|snapshot=fast-14|responses.length=21
+#2|2-2|teacher responding #fast-11
+#2|2-2|snapshot=fast-11|responses.length=16
+#1|1-2|teacher responding #fast-13
+#1|1-2|snapshot=fast-13|responses.length=19
+#2|2-3|teacher responding #slow-1
+#2|2-3|snapshot=slow-1|responses.length=2
+#2|2-3|teacher responding #fast-2
+#2|2-3|snapshot=fast-2|responses.length=3
+#1|1-3|teacher responding #fast-7
+#1|1-3|snapshot=fast-7|responses.length=10
+#2|2-1|teacher responding #fast-15
+#2|2-1|snapshot=fast-15|responses.length=22
+#2|2-2|teacher responding #slow-6
+#2|2-2|snapshot=slow-6|responses.length=17
+#2|2-2|teacher responding #fast-12
+#2|2-2|snapshot=fast-12|responses.length=18
+#1|1-2|teacher responding #slow-7
+#1|1-2|snapshot=slow-7|responses.length=20
+#1|1-2|teacher responding #fast-14
+#1|1-2|snapshot=fast-14|responses.length=21
+#2|2-3|teacher responding #fast-3
+#2|2-3|snapshot=fast-3|responses.length=4
+#1|1-1|teacher responding #slow-9
+#1|1-1|snapshot=slow-9|responses.length=24
+#2|2-1|teacher responding #slow-8
+#1|1-3|teacher responding #slow-4
+#1|1-3|snapshot=slow-4|responses.length=11
+#2|2-1|snapshot=slow-8|responses.length=23
+#1|1-3|teacher responding #fast-8
+#1|1-3|snapshot=fast-8|responses.length=12
+#2|2-1|clearing responseMimicTimerFast
+#2|2-2|teacher responding #fast-13
+#2|2-2|snapshot=fast-13|responses.length=19
+#1|1-2|teacher responding #fast-15
+#1|1-2|snapshot=fast-15|responses.length=22
+#2|2-3|teacher responding #slow-2
+#2|2-3|snapshot=slow-2|responses.length=5
+#2|2-3|teacher responding #fast-4
+#2|2-3|snapshot=fast-4|responses.length=6
+#1|1-3|teacher responding #fast-9
+#1|1-3|snapshot=fast-9|responses.length=13
+#2|2-2|teacher responding #slow-7
+#2|2-2|snapshot=slow-7|responses.length=20
+#2|2-2|teacher responding #fast-14
+#2|2-2|snapshot=fast-14|responses.length=21
+#1: 4|3|0
+#1: 4|4|0
+#1|1-4|NaN
+#1|1-2|teacher responding #slow-8
+#1|1-2|snapshot=slow-8|responses.length=23
+#1|1-2|clearing responseMimicTimerFast
+#2|2-3|teacher responding #fast-5
+#2|2-3|snapshot=fast-5|responses.length=7
+#1|1-1|selecting teachers out of 24 teachers
+#1|1-1|stopped accepting any more responses == window closed
+#1|1-1|teacher responding #slow-10
+#1|1-3|teacher responding #slow-5
+#2|2-1|teacher responding #slow-9
+#1|1-3|snapshot=slow-5|responses.length=14
+#2|2-1|snapshot=slow-9|responses.length=24
+#1|1-3|teacher responding #fast-10
+#1|1-3|snapshot=fast-10|responses.length=15
+#2|2-2|teacher responding #fast-15
+#2|2-2|snapshot=fast-15|responses.length=22
+#1|1-4|teacher responding #fast-1
+#1|1-4|snapshot=fast-1|responses.length=1
+#2|2-3|teacher responding #slow-3
+#2|2-3|snapshot=slow-3|responses.length=8
+#2|2-3|teacher responding #fast-6
+#2|2-3|snapshot=fast-6|responses.length=9
+#1|1-3|teacher responding #fast-11
+#1|1-3|snapshot=fast-11|responses.length=16
+#2|2-2|teacher responding #slow-8
+#2|2-2|snapshot=slow-8|responses.length=23
+#2|2-2|clearing responseMimicTimerFast
+#1|1-4|teacher responding #slow-1
+#1|1-4|snapshot=slow-1|responses.length=2
+#1|1-4|teacher responding #fast-2
+#1|1-4|snapshot=fast-2|responses.length=3
+#1|1-2|teacher responding #slow-9
+#1|1-2|snapshot=slow-9|responses.length=24
+#2|2-3|teacher responding #fast-7
+#2|2-3|snapshot=fast-7|responses.length=10
+#1|1-1|teacher responding #slow-11
+#2|2-1|selecting teachers out of 24 teachers
+#2|2-1|stopped accepting any more responses == window closed
+#1|1-3|teacher responding #slow-6
+#2|2-1|teacher responding #slow-10
+#1|1-3|snapshot=slow-6|responses.length=17
+#1|1-3|teacher responding #fast-12
+#1|1-3|snapshot=fast-12|responses.length=18
+#1|1-4|teacher responding #fast-3
+#1|1-4|snapshot=fast-3|responses.length=4
+#2|2-3|teacher responding #slow-4
+#2|2-3|snapshot=slow-4|responses.length=11
+#2|2-3|teacher responding #fast-8
+#2|2-3|snapshot=fast-8|responses.length=12
+#1|1-3|teacher responding #fast-13
+#1|1-3|snapshot=fast-13|responses.length=19
+#2|2-2|teacher responding #slow-9
+#2|2-2|snapshot=slow-9|responses.length=24
+#1|1-4|teacher responding #slow-2
+#1|1-4|snapshot=slow-2|responses.length=5
+#1|1-4|teacher responding #fast-4
+#1|1-4|snapshot=fast-4|responses.length=6
+#1|1-2|selecting teachers out of 24 teachers
+#1|1-2|stopped accepting any more responses == window closed
+#1|1-2|teacher responding #slow-10
+#2|2-3|teacher responding #fast-9
+#2|2-3|snapshot=fast-9|responses.length=13
+#1|1-1|teacher responding #slow-12
+#1|1-3|teacher responding #slow-7
+#2|2-1|teacher responding #slow-11
+#1|1-3|snapshot=slow-7|responses.length=20
+#1|1-3|teacher responding #fast-14
+#1|1-3|snapshot=fast-14|responses.length=21
+#1|1-4|teacher responding #fast-5
+#1|1-4|snapshot=fast-5|responses.length=7
+#1: 5|4|0
+#1: 5|5|0
+#1|1-5|NaN
+#2|2-3|teacher responding #slow-5
+#2|2-3|snapshot=slow-5|responses.length=14
+#2|2-3|teacher responding #fast-10
+#2|2-3|snapshot=fast-10|responses.length=15
+#1|1-3|teacher responding #fast-15
+#1|1-3|snapshot=fast-15|responses.length=22
+#2|2-2|selecting teachers out of 24 teachers
+#2|2-2|stopped accepting any more responses == window closed
+#2|2-2|teacher responding #slow-10
+#1|1-4|teacher responding #slow-3
+#1|1-4|snapshot=slow-3|responses.length=8
+#1|1-4|teacher responding #fast-6
+#1|1-4|snapshot=fast-6|responses.length=9
+#1|1-5|teacher responding #fast-1
+#1|1-5|snapshot=fast-1|responses.length=1
+#1|1-2|teacher responding #slow-11
+#2|2-3|teacher responding #fast-11
+#2|2-3|snapshot=fast-11|responses.length=16
+#1|1-1|teacher responding #slow-13
+#1|1-3|teacher responding #slow-8
+#1|1-3|snapshot=slow-8|responses.length=23
+#2|2-1|teacher responding #slow-12
+#1|1-3|clearing responseMimicTimerFast
+#1|1-4|teacher responding #fast-7
+#1|1-4|snapshot=fast-7|responses.length=10
+#1|1-5|teacher responding #slow-1
+#1|1-5|snapshot=slow-1|responses.length=2
+#1|1-5|teacher responding #fast-2
+#1|1-5|snapshot=fast-2|responses.length=3
+#1|1-1|selected teacher #slow-5
+#1: 5|5|1
+#2|2-3|teacher responding #slow-6
+#2|2-3|snapshot=slow-6|responses.length=17
+#2|2-3|teacher responding #fast-12
+#2|2-3|snapshot=fast-12|responses.length=18
+#2|2-2|teacher responding #slow-11
+#1|1-4|teacher responding #slow-4
+#1|1-4|snapshot=slow-4|responses.length=11
+#1|1-4|teacher responding #fast-8
+#1|1-4|snapshot=fast-8|responses.length=12
+#1|1-5|teacher responding #fast-3
+#1|1-5|snapshot=fast-3|responses.length=4
+#1|1-2|teacher responding #slow-12
+#2|2-3|teacher responding #fast-13
+#2|2-3|snapshot=fast-13|responses.length=19
+#1|1-1|teacher responding #slow-14
+#1|1-3|teacher responding #slow-9
+#1|1-3|snapshot=slow-9|responses.length=24
+#2|2-1|teacher responding #slow-13
+#1|1-4|teacher responding #fast-9
+#1|1-4|snapshot=fast-9|responses.length=13
+#1|1-5|teacher responding #slow-2
+#1|1-5|snapshot=slow-2|responses.length=5
+#1|1-5|teacher responding #fast-4
+#1|1-5|snapshot=fast-4|responses.length=6
+#2|2-3|teacher responding #slow-7
+#2|2-3|snapshot=slow-7|responses.length=20
+#2|2-3|teacher responding #fast-14
+#2|2-3|snapshot=fast-14|responses.length=21
+#2|2-1|selected teacher #fast-3
+#2: 3|3|1
+#1: 6|5|1
+#1: 6|6|1
+#1|1-6|NaN
+#2|2-2|teacher responding #slow-12
+#1|1-4|teacher responding #slow-5
+#1|1-4|snapshot=slow-5|responses.length=14
+#1|1-4|teacher responding #fast-10
+#1|1-4|snapshot=fast-10|responses.length=15
+#1|1-5|teacher responding #fast-5
+#1|1-5|snapshot=fast-5|responses.length=7
+#1|1-2|teacher responding #slow-13
+#2|2-3|teacher responding #fast-15
+#2|2-3|snapshot=fast-15|responses.length=22
+#1|1-6|teacher responding #fast-1
+#1|1-6|snapshot=fast-1|responses.length=1
+#1|1-1|teacher responding #slow-15
+#1|1-3|selecting teachers out of 24 teachers
+#1|1-3|stopped accepting any more responses == window closed
+#1|1-3|teacher responding #slow-10
+#2|2-1|teacher responding #slow-14
+#1|1-2|selected teacher #slow-6
+#1: 6|6|2
+#1|1-4|teacher responding #fast-11
+#1|1-4|snapshot=fast-11|responses.length=16
+#1|1-5|teacher responding #slow-3
+#1|1-5|snapshot=slow-3|responses.length=8
+#1|1-5|teacher responding #fast-6
+#1|1-5|snapshot=fast-6|responses.length=9
+#2|2-3|teacher responding #slow-8
+#2|2-3|snapshot=slow-8|responses.length=23
+#2|2-3|clearing responseMimicTimerFast
+#1|1-6|teacher responding #slow-1
+#1|1-6|snapshot=slow-1|responses.length=2
+#1|1-6|teacher responding #fast-2
+#1|1-6|snapshot=fast-2|responses.length=3
+#2|2-2|teacher responding #slow-13
+#1|1-4|teacher responding #slow-6
+#1|1-4|snapshot=slow-6|responses.length=17
+#1|1-4|teacher responding #fast-12
+#1|1-4|snapshot=fast-12|responses.length=18
+#1|1-5|teacher responding #fast-7
+#1|1-5|snapshot=fast-7|responses.length=10
+#1|1-2|teacher responding #slow-14
+#1|1-6|teacher responding #fast-3
+#1|1-6|snapshot=fast-3|responses.length=4
+#2|2-2|selected teacher #fast-6
+#2: 3|3|2
+#1|1-1|teacher responding #slow-16
+#1|1-3|teacher responding #slow-11
+#2|2-1|teacher responding #slow-15
+#1|1-4|teacher responding #fast-13
+#1|1-4|snapshot=fast-13|responses.length=19
+#1|1-5|teacher responding #slow-4
+#1|1-5|snapshot=slow-4|responses.length=11
+#1|1-5|teacher responding #fast-8
+#1|1-5|snapshot=fast-8|responses.length=12
+#2|2-3|teacher responding #slow-9
+#2|2-3|snapshot=slow-9|responses.length=24
+#1|1-6|teacher responding #slow-2
+#1|1-6|snapshot=slow-2|responses.length=5
+#1|1-6|teacher responding #fast-4
+#1|1-6|snapshot=fast-4|responses.length=6
+#2|2-2|teacher responding #slow-14
+#1|1-4|teacher responding #slow-7
+#1|1-4|snapshot=slow-7|responses.length=20
+#1|1-4|teacher responding #fast-14
+#1|1-4|snapshot=fast-14|responses.length=21
+#1: 7|6|2
+#1: 7|7|2
+#1|1-7|NaN
+#1|1-5|teacher responding #fast-9
+#1|1-5|snapshot=fast-9|responses.length=13
+#1|1-2|teacher responding #slow-15
+#1|1-6|teacher responding #fast-5
+#1|1-6|snapshot=fast-5|responses.length=7
+#1|1-1|teacher responding #slow-17
+#1|1-3|teacher responding #slow-12
+#2|2-1|teacher responding #slow-16
+#1|1-4|teacher responding #fast-15
+#1|1-4|snapshot=fast-15|responses.length=22
+#1|1-5|teacher responding #slow-5
+#1|1-5|snapshot=slow-5|responses.length=14
+#1|1-7|teacher responding #fast-1
+#1|1-7|snapshot=fast-1|responses.length=1
+#1|1-5|teacher responding #fast-10
+#1|1-5|snapshot=fast-10|responses.length=15
+#2|2-3|selecting teachers out of 24 teachers
+#2|2-3|stopped accepting any more responses == window closed
+#2|2-3|teacher responding #slow-10
+#1|1-6|teacher responding #slow-3
+#1|1-6|snapshot=slow-3|responses.length=8
+#1|1-6|teacher responding #fast-6
+#1|1-6|snapshot=fast-6|responses.length=9
+#2|2-2|teacher responding #slow-15
+#1|1-4|teacher responding #slow-8
+#1|1-4|snapshot=slow-8|responses.length=23
+#1|1-4|clearing responseMimicTimerFast
+#1|1-7|teacher responding #slow-1
+#1|1-7|snapshot=slow-1|responses.length=2
+#1|1-7|teacher responding #fast-2
+#1|1-7|snapshot=fast-2|responses.length=3
+#1|1-5|teacher responding #fast-11
+#1|1-5|snapshot=fast-11|responses.length=16
+#1|1-2|teacher responding #slow-16
+#1|1-6|teacher responding #fast-7
+#1|1-6|snapshot=fast-7|responses.length=10
+#1|1-1|teacher responding #slow-18
+#2|2-1|teacher responding #slow-17
+#1|1-3|teacher responding #slow-13
+#1|1-5|teacher responding #slow-6
+#1|1-5|snapshot=slow-6|responses.length=17
+#1|1-7|teacher responding #fast-3
+#1|1-7|snapshot=fast-3|responses.length=4
+#1|1-5|teacher responding #fast-12
+#1|1-5|snapshot=fast-12|responses.length=18
+#2|2-3|teacher responding #slow-11
+#1|1-3|selected teacher #fast-10
+#1: 7|7|3
+#1|1-6|teacher responding #slow-4
+#1|1-6|snapshot=slow-4|responses.length=11
+#1|1-6|teacher responding #fast-8
+#1|1-6|snapshot=fast-8|responses.length=12
+#2|2-2|teacher responding #slow-16
+#1|1-4|teacher responding #slow-9
+#1|1-4|snapshot=slow-9|responses.length=24
+#1|1-7|teacher responding #slow-2
+#1|1-7|snapshot=slow-2|responses.length=5
+#1|1-7|teacher responding #fast-4
+#1|1-7|snapshot=fast-4|responses.length=6
+#1|1-5|teacher responding #fast-13
+#1|1-5|snapshot=fast-13|responses.length=19
+#1|1-2|teacher responding #slow-17
+#1|1-6|teacher responding #fast-9
+#1|1-6|snapshot=fast-9|responses.length=13
+#1|1-1|teacher responding #slow-19
+#1: 8|7|3
+#1: 8|8|3
+#1|1-8|NaN
+#2|2-1|teacher responding #slow-18
+#1|1-3|teacher responding #slow-14
+#1|1-5|teacher responding #slow-7
+#1|1-5|snapshot=slow-7|responses.length=20
+#1|1-7|teacher responding #fast-5
+#1|1-7|snapshot=fast-5|responses.length=7
+#1|1-5|teacher responding #fast-14
+#1|1-5|snapshot=fast-14|responses.length=21
+#2|2-3|teacher responding #slow-12
+#1|1-6|teacher responding #slow-5
+#1|1-6|snapshot=slow-5|responses.length=14
+#1|1-6|teacher responding #fast-10
+#1|1-6|snapshot=fast-10|responses.length=15
+#1|1-8|teacher responding #fast-1
+#1|1-8|snapshot=fast-1|responses.length=1
+#2|2-2|teacher responding #slow-17
+#1|1-4|selecting teachers out of 24 teachers
+#1|1-4|stopped accepting any more responses == window closed
+#1|1-4|teacher responding #slow-10
+#1|1-7|teacher responding #slow-3
+#1|1-7|snapshot=slow-3|responses.length=8
+#1|1-7|teacher responding #fast-6
+#1|1-7|snapshot=fast-6|responses.length=9
+#1|1-5|teacher responding #fast-15
+#1|1-5|snapshot=fast-15|responses.length=22
+#1|1-2|teacher responding #slow-18
+#1|1-6|teacher responding #fast-11
+#1|1-6|snapshot=fast-11|responses.length=16
+#1|1-1|teacher responding #slow-20
+#1|1-8|teacher responding #slow-1
+#1|1-8|snapshot=slow-1|responses.length=2
+#1|1-8|teacher responding #fast-2
+#1|1-8|snapshot=fast-2|responses.length=3
+#2|2-1|teacher responding #slow-19
+#1|1-3|teacher responding #slow-15
+#1|1-5|teacher responding #slow-8
+#1|1-5|snapshot=slow-8|responses.length=23
+#1|1-7|teacher responding #fast-7
+#1|1-7|snapshot=fast-7|responses.length=10
+#1|1-5|clearing responseMimicTimerFast
+#2|2-3|teacher responding #slow-13
+#1|1-6|teacher responding #slow-6
+#1|1-6|snapshot=slow-6|responses.length=17
+#1|1-6|teacher responding #fast-12
+#1|1-6|snapshot=fast-12|responses.length=18
+#1|1-8|teacher responding #fast-3
+#1|1-8|snapshot=fast-3|responses.length=4
+#2|2-2|teacher responding #slow-18
+#2|2-3|selected teacher #slow-5
+#2: 3|3|3
+#1|1-4|teacher responding #slow-11
+#1|1-7|teacher responding #slow-4
+#1|1-7|snapshot=slow-4|responses.length=11
+#1|1-7|teacher responding #fast-8
+#1|1-7|snapshot=fast-8|responses.length=12
+#1|1-2|teacher responding #slow-19
+#1|1-6|teacher responding #fast-13
+#1|1-6|snapshot=fast-13|responses.length=19
+#1|1-1|clearing responseMimicTimerSlow
+#1|1-8|teacher responding #slow-2
+#1|1-8|snapshot=slow-2|responses.length=5
+#1|1-8|teacher responding #fast-4
+#1|1-8|snapshot=fast-4|responses.length=6
+#2|2-1|teacher responding #slow-20
+#1|1-3|teacher responding #slow-16
+#1: 9|8|3
+#1: 9|9|3
+#1|1-9|NaN
+#1|1-5|teacher responding #slow-9
+#1|1-5|snapshot=slow-9|responses.length=24
+#1|1-7|teacher responding #fast-9
+#1|1-7|snapshot=fast-9|responses.length=13
+#2|2-3|teacher responding #slow-14
+#1|1-6|teacher responding #slow-7
+#1|1-6|snapshot=slow-7|responses.length=20
+#1|1-6|teacher responding #fast-14
+#1|1-6|snapshot=fast-14|responses.length=21
+#1|1-8|teacher responding #fast-5
+#1|1-8|snapshot=fast-5|responses.length=7
+#2|2-2|teacher responding #slow-19
+#1|1-9|teacher responding #fast-1
+#1|1-9|snapshot=fast-1|responses.length=1
+#1|1-4|teacher responding #slow-12
+#1|1-7|teacher responding #slow-5
+#1|1-7|snapshot=slow-5|responses.length=14
+#1|1-7|teacher responding #fast-10
+#1|1-7|snapshot=fast-10|responses.length=15
+#1|1-2|teacher responding #slow-20
+#1|1-6|teacher responding #fast-15
+#1|1-6|snapshot=fast-15|responses.length=22
+#1|1-8|teacher responding #slow-3
+#1|1-8|snapshot=slow-3|responses.length=8
+#1|1-8|teacher responding #fast-6
+#1|1-8|snapshot=fast-6|responses.length=9
+#2|2-1|clearing responseMimicTimerSlow
+#1|1-3|teacher responding #slow-17
+#1|1-9|teacher responding #slow-1
+#1|1-9|snapshot=slow-1|responses.length=2
+#1|1-9|teacher responding #fast-2
+#1|1-9|snapshot=fast-2|responses.length=3
+#1|1-5|selecting teachers out of 24 teachers
+#1|1-5|stopped accepting any more responses == window closed
+#1|1-5|teacher responding #slow-10
+#1|1-7|teacher responding #fast-11
+#1|1-7|snapshot=fast-11|responses.length=16
+#2|2-3|teacher responding #slow-15
+#1|1-6|teacher responding #slow-8
+#1|1-6|snapshot=slow-8|responses.length=23
+#1|1-6|clearing responseMimicTimerFast
+#1|1-8|teacher responding #fast-7
+#1|1-8|snapshot=fast-7|responses.length=10
+#2|2-2|teacher responding #slow-20
+#1|1-9|teacher responding #fast-3
+#1|1-9|snapshot=fast-3|responses.length=4
+#1|1-4|teacher responding #slow-13
+#1|1-7|teacher responding #slow-6
+#1|1-7|snapshot=slow-6|responses.length=17
+#1|1-7|teacher responding #fast-12
+#1|1-7|snapshot=fast-12|responses.length=18
+#1|1-2|clearing responseMimicTimerSlow
+#1|1-4|selected teacher #slow-4
+#1: 9|9|4
+#1|1-8|teacher responding #slow-4
+#1|1-8|snapshot=slow-4|responses.length=11
+#1|1-8|teacher responding #fast-8
+#1|1-8|snapshot=fast-8|responses.length=12
+#1|1-3|teacher responding #slow-18
+#1|1-9|teacher responding #slow-2
+#1|1-9|snapshot=slow-2|responses.length=5
+#1|1-9|teacher responding #fast-4
+#1|1-9|snapshot=fast-4|responses.length=6
+#1|1-5|teacher responding #slow-11
+#1|1-7|teacher responding #fast-13
+#1|1-7|snapshot=fast-13|responses.length=19
+#2|2-3|teacher responding #slow-16
+#1|1-6|teacher responding #slow-9
+#1|1-6|snapshot=slow-9|responses.length=24
+#1|1-8|teacher responding #fast-9
+#1|1-8|snapshot=fast-9|responses.length=13
+#1: 10|9|4
+#1: 10|10|4
+#1|1-10|NaN
+#2|2-2|clearing responseMimicTimerSlow
+#1|1-9|teacher responding #fast-5
+#1|1-9|snapshot=fast-5|responses.length=7
+#1|1-4|teacher responding #slow-14
+#1|1-7|teacher responding #slow-7
+#1|1-7|snapshot=slow-7|responses.length=20
+#1|1-7|teacher responding #fast-14
+#1|1-7|snapshot=fast-14|responses.length=21
+#1|1-8|teacher responding #slow-5
+#1|1-8|snapshot=slow-5|responses.length=14
+#1|1-8|teacher responding #fast-10
+#1|1-8|snapshot=fast-10|responses.length=15
+#1|1-3|teacher responding #slow-19
+#1|1-10|teacher responding #fast-1
+#1|1-10|snapshot=fast-1|responses.length=1
+#1|1-9|teacher responding #slow-3
+#1|1-9|snapshot=slow-3|responses.length=8
+#1|1-9|teacher responding #fast-6
+#1|1-9|snapshot=fast-6|responses.length=9
+#1|1-5|teacher responding #slow-12
+#1|1-7|teacher responding #fast-15
+#1|1-7|snapshot=fast-15|responses.length=22
+#2|2-3|teacher responding #slow-17
+#1|1-6|selecting teachers out of 24 teachers
+#1|1-6|stopped accepting any more responses == window closed
+#1|1-6|teacher responding #slow-10
+#1|1-8|teacher responding #fast-11
+#1|1-8|snapshot=fast-11|responses.length=16
+#1|1-10|teacher responding #slow-1
+#1|1-10|snapshot=slow-1|responses.length=2
+#1|1-10|teacher responding #fast-2
+#1|1-10|snapshot=fast-2|responses.length=3
+#1|1-9|teacher responding #fast-7
+#1|1-9|snapshot=fast-7|responses.length=10
+#1|1-4|teacher responding #slow-15
+#1|1-7|teacher responding #slow-8
+#1|1-7|snapshot=slow-8|responses.length=23
+#1|1-7|clearing responseMimicTimerFast
+#1|1-8|teacher responding #slow-6
+#1|1-8|snapshot=slow-6|responses.length=17
+#1|1-8|teacher responding #fast-12
+#1|1-8|snapshot=fast-12|responses.length=18
+#1|1-3|teacher responding #slow-20
+#1|1-10|teacher responding #fast-3
+#1|1-10|snapshot=fast-3|responses.length=4
+#1|1-9|teacher responding #slow-4
+#1|1-9|snapshot=slow-4|responses.length=11
+#1|1-9|teacher responding #fast-8
+#1|1-9|snapshot=fast-8|responses.length=12
+#1|1-5|teacher responding #slow-13
+#2|2-3|teacher responding #slow-18
+#1|1-6|teacher responding #slow-11
+#1|1-5|selected teacher #fast-4
+#1: 10|10|5
+#1|1-8|teacher responding #fast-13
+#1|1-8|snapshot=fast-13|responses.length=19
+#1|1-10|teacher responding #slow-2
+#1|1-10|snapshot=slow-2|responses.length=5
+#1|1-10|teacher responding #fast-4
+#1|1-10|snapshot=fast-4|responses.length=6
+#1|1-9|teacher responding #fast-9
+#1|1-9|snapshot=fast-9|responses.length=13
+#1|1-4|teacher responding #slow-16
+#1|1-7|teacher responding #slow-9
+#1|1-7|snapshot=slow-9|responses.length=24
+#1|1-8|teacher responding #slow-7
+#1|1-8|snapshot=slow-7|responses.length=20
+#1|1-8|teacher responding #fast-14
+#1|1-8|snapshot=fast-14|responses.length=21
+#1|1-3|clearing responseMimicTimerSlow
+#1|1-10|teacher responding #fast-5
+#1|1-10|snapshot=fast-5|responses.length=7
+#1|1-9|teacher responding #slow-5
+#1|1-9|snapshot=slow-5|responses.length=14
+#1|1-9|teacher responding #fast-10
+#1|1-9|snapshot=fast-10|responses.length=15
+#1|1-5|teacher responding #slow-14
+#2|2-3|teacher responding #slow-19
+#1|1-6|teacher responding #slow-12
+#1|1-8|teacher responding #fast-15
+#1|1-8|snapshot=fast-15|responses.length=22
+#1|1-10|teacher responding #slow-3
+#1|1-10|snapshot=slow-3|responses.length=8
+#1|1-10|teacher responding #fast-6
+#1|1-10|snapshot=fast-6|responses.length=9
+#1|1-9|teacher responding #fast-11
+#1|1-9|snapshot=fast-11|responses.length=16
+#1|1-4|teacher responding #slow-17
+#1|1-7|selecting teachers out of 24 teachers
+#1|1-7|stopped accepting any more responses == window closed
+#1|1-7|teacher responding #slow-10
+#1|1-8|teacher responding #slow-8
+#1|1-8|snapshot=slow-8|responses.length=23
+#1|1-8|clearing responseMimicTimerFast
+#1|1-10|teacher responding #fast-7
+#1|1-10|snapshot=fast-7|responses.length=10
+#1|1-9|teacher responding #slow-6
+#1|1-9|snapshot=slow-6|responses.length=17
+#1|1-9|teacher responding #fast-12
+#1|1-9|snapshot=fast-12|responses.length=18
+#1|1-5|teacher responding #slow-15
+#2|2-3|teacher responding #slow-20
+#1|1-6|teacher responding #slow-13
+#1|1-10|teacher responding #slow-4
+#1|1-10|snapshot=slow-4|responses.length=11
+#1|1-10|teacher responding #fast-8
+#1|1-10|snapshot=fast-8|responses.length=12
+#1|1-9|teacher responding #fast-13
+#1|1-9|snapshot=fast-13|responses.length=19
+#1|1-6|selected teacher #fast-12
+#1: 10|10|6
+#1|1-4|teacher responding #slow-18
+#1|1-7|teacher responding #slow-11
+#1|1-8|teacher responding #slow-9
+#1|1-8|snapshot=slow-9|responses.length=24
+#1|1-10|teacher responding #fast-9
+#1|1-10|snapshot=fast-9|responses.length=13
+#1|1-9|teacher responding #slow-7
+#1|1-9|snapshot=slow-7|responses.length=20
+#1|1-9|teacher responding #fast-14
+#1|1-9|snapshot=fast-14|responses.length=21
+#1|1-5|teacher responding #slow-16
+#2|2-3|clearing responseMimicTimerSlow
+#1|1-6|teacher responding #slow-14
+#1|1-10|teacher responding #slow-5
+#1|1-10|snapshot=slow-5|responses.length=14
+#1|1-10|teacher responding #fast-10
+#1|1-10|snapshot=fast-10|responses.length=15
+#1|1-9|teacher responding #fast-15
+#1|1-9|snapshot=fast-15|responses.length=22
+#1|1-4|teacher responding #slow-19
+#1|1-7|teacher responding #slow-12
+#1|1-8|selecting teachers out of 24 teachers
+#1|1-8|stopped accepting any more responses == window closed
+#1|1-8|teacher responding #slow-10
+#1|1-10|teacher responding #fast-11
+#1|1-10|snapshot=fast-11|responses.length=16
+#1|1-9|teacher responding #slow-8
+#1|1-9|snapshot=slow-8|responses.length=23
+#1|1-9|clearing responseMimicTimerFast
+#1|1-5|teacher responding #slow-17
+#1|1-6|teacher responding #slow-15
+#1|1-10|teacher responding #slow-6
+#1|1-10|snapshot=slow-6|responses.length=17
+#1|1-10|teacher responding #fast-12
+#1|1-10|snapshot=fast-12|responses.length=18
+#1|1-4|teacher responding #slow-20
+#1|1-7|teacher responding #slow-13
+#1|1-8|teacher responding #slow-11
+#1|1-7|selected teacher #fast-5
+#1: 10|10|7
+#1|1-10|teacher responding #fast-13
+#1|1-10|snapshot=fast-13|responses.length=19
+#1|1-9|teacher responding #slow-9
+#1|1-9|snapshot=slow-9|responses.length=24
+#1|1-5|teacher responding #slow-18
+#1|1-6|teacher responding #slow-16
+#1|1-10|teacher responding #slow-7
+#1|1-10|snapshot=slow-7|responses.length=20
+#1|1-10|teacher responding #fast-14
+#1|1-10|snapshot=fast-14|responses.length=21
+#1|1-4|clearing responseMimicTimerSlow
+#1|1-7|teacher responding #slow-14
+#1|1-8|teacher responding #slow-12
+#1|1-10|teacher responding #fast-15
+#1|1-10|snapshot=fast-15|responses.length=22
+#1|1-9|selecting teachers out of 24 teachers
+#1|1-9|stopped accepting any more responses == window closed
+#1|1-9|teacher responding #slow-10
+#1|1-5|teacher responding #slow-19
+#1|1-6|teacher responding #slow-17
+#1|1-10|teacher responding #slow-8
+#1|1-10|snapshot=slow-8|responses.length=23
+#1|1-10|clearing responseMimicTimerFast
+#1|1-7|teacher responding #slow-15
+#1|1-8|teacher responding #slow-13
+#1|1-9|teacher responding #slow-11
+#1|1-5|teacher responding #slow-20
+#1|1-8|selected teacher #fast-10
+#1: 10|10|8
+#1|1-6|teacher responding #slow-18
+#1|1-10|teacher responding #slow-9
+#1|1-10|snapshot=slow-9|responses.length=24
+#1|1-7|teacher responding #slow-16
+#1|1-8|teacher responding #slow-14
+#1|1-9|teacher responding #slow-12
+#1|1-5|clearing responseMimicTimerSlow
+#1|1-6|teacher responding #slow-19
+#1|1-10|selecting teachers out of 24 teachers
+#1|1-10|stopped accepting any more responses == window closed
+#1|1-10|teacher responding #slow-10
+#1|1-7|teacher responding #slow-17
+#1|1-8|teacher responding #slow-15
+#1|1-9|teacher responding #slow-13
+#1|1-6|teacher responding #slow-20
+#1|1-9|selected teacher #fast-6
+#1: 10|10|9
+#1|1-10|teacher responding #slow-11
+#1|1-7|teacher responding #slow-18
+#1|1-8|teacher responding #slow-16
+#1|1-9|teacher responding #slow-14
+#1|1-6|clearing responseMimicTimerSlow
+#1|1-10|teacher responding #slow-12
+#1|1-7|teacher responding #slow-19
+#1|1-8|teacher responding #slow-17
+#1|1-9|teacher responding #slow-15
+#1|1-10|teacher responding #slow-13
+#1|1-7|teacher responding #slow-20
+#1|1-10|selected teacher #fast-4
+#1: 10|10|10
+#1|1-8|teacher responding #slow-18
+#1|1-9|teacher responding #slow-16
+#1|1-10|teacher responding #slow-14
+#1|1-7|clearing responseMimicTimerSlow
+#1|1-8|teacher responding #slow-19
+#1|1-9|teacher responding #slow-17
+#1|1-10|teacher responding #slow-15
+#1|1-8|teacher responding #slow-20
+#1|1-9|teacher responding #slow-18
+#1|1-10|teacher responding #slow-16
+#1|1-8|clearing responseMimicTimerSlow
+#1|1-9|teacher responding #slow-19
+#1|1-10|teacher responding #slow-17
+#1|1-9|teacher responding #slow-20
+#1|1-10|teacher responding #slow-18
+#1|1-9|clearing responseMimicTimerSlow
+#1|1-10|teacher responding #slow-19
+#1|1-10|teacher responding #slow-20
+#1|1-10|clearing responseMimicTimerSlow
+#M stopWorker timeout : worker #2 already exited

@@ -23,10 +23,9 @@ if(cluster.isWorker){
     console.log("#" + clusterWorkerId + ": disconnect message received");
     mongooseR.suicide = true;
   });
-  /*cluster.worker.on('exit', function(code, signal){
+  cluster.worker.on('exit', function(code, signal){
     console.log("#" + clusterWorkerId + ": exit");
   });
-  */
 }
 
 //=======================
