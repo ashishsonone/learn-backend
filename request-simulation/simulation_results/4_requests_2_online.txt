@@ -1,0 +1,58 @@
+$
+ashish:~/Desktop/vm-shared/request-simulation$ reset
+ashish:~/Desktop/vm-shared/request-simulation$ node server_api.js
+waiting for teaching api requests @ '192.168.0.23:8002/requests' REST endpoint
+A_1460727907|request received. Finding teachers...
+A_1460727907|online teachers 2
+A_1460727907|sending request to dhanesh
+A_1460727907|sending request to hardik
+A_1460727907|waiting for responses
+B_1460727910|request received. Finding teachers...
+B_1460727910|online teachers 2
+B_1460727910|sending request to dhanesh
+B_1460727910|sending request to hardik
+B_1460727910|waiting for responses
+C_1460727913|request received. Finding teachers...
+C_1460727913|online teachers 2
+C_1460727913|sending request to dhanesh
+C_1460727913|sending request to hardik
+C_1460727913|waiting for responses
+D_1460727916|request received. Finding teachers...
+D_1460727916|online teachers 2
+D_1460727916|sending request to dhanesh
+D_1460727916|sending request to hardik
+D_1460727916|waiting for responses
+A_1460727907|response received username=hardik, action=accept
+B_1460727910|response received username=hardik, action=accept
+C_1460727913|response received username=hardik, action=accept
+C_1460727913|response received username=dhanesh, action=accept
+A_1460727907|response received username=dhanesh, action=accept
+B_1460727910|response received username=dhanesh, action=reject
+D_1460727916|response received username=hardik, action=accept
+D_1460727916|response received username=dhanesh, action=accept
+A_1460727907| selecting out of 2
+A_1460727907| trying out teacher [0] hardik
+A_1460727907|selected teacher hardik out of 2 ready teachers
+A_1460727907|sending deny to teacher dhanesh
+A_1460727907|sending assign to teacher hardik
+A_1460727907|sending assign to student A
+B_1460727910| selecting out of 1
+B_1460727910| trying out teacher [0] hardik
+B_1460727910| tried all teachers - all busy
+B_1460727910|sending deny to teacher dhanesh
+B_1460727910|sending deny to teacher hardik
+B_1460727910|sending deny to student B
+C_1460727913| selecting out of 2
+C_1460727913| trying out teacher [0] hardik
+C_1460727913| trying out teacher [1] dhanesh
+C_1460727913|selected teacher dhanesh out of 2 ready teachers
+C_1460727913|sending deny to teacher hardik
+C_1460727913|sending assign to teacher dhanesh
+C_1460727913|sending assign to student C
+D_1460727916| selecting out of 2
+D_1460727916| trying out teacher [0] hardik
+D_1460727916| trying out teacher [1] dhanesh
+D_1460727916| tried all teachers - all busy
+D_1460727916|sending deny to teacher dhanesh
+D_1460727916|sending deny to teacher hardik
+D_1460727916|sending deny to student D

@@ -1,0 +1,18 @@
+index on "ts" (timestamp) for each  /channels/<username>
+
+index on "processed" for /sessions
+
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "channels" : {
+      "$channel" : {
+          ".indexOn": "ts"
+      }
+    },
+    "sessions" : {
+      ".indexOn" : "processed"
+    }
+  }
+}
