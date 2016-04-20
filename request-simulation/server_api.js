@@ -1,12 +1,17 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Firebase = require('firebase');
+var FirebaseTokenGenerator = require("firebase-token-generator");
+
 var bodyParser = require('body-parser');
 
 var models = require('./models');
 var config = require('./config');
 var FIREBASE_BASE_URL = config.firebaseConfig.baseUrl;
 var MONGODB_URL = config.mongoConfig.dbUrl;
+var FIREBASE_SECRET = config.firebaseConfig.secret;
+
+var tokenGenerator = new FirebaseTokenGenerator(FIREBASE_SECRET);
 
 mongoose.connect(MONGODB_URL);
 
@@ -29,15 +34,20 @@ var rootTeachingRef = new Firebase(FIREBASE_BASE_URL + "/teaching/");
 app.post('/requests', function(req, res){
   var studentUsername = req.body.username;
   var topic = req.body.topic;
-  var requestId = studentUsername + "_" + parseInt(new Date().getTime()/1000);
+  
+  var date = new Date().toISOString().slice(0, 10);
+  var requestId = date + "/" + studentUsername + "_" + parseInt(new Date().getTime()/1000);
 
   if(!(topic && studentUsername)){
     res.json({error : 401, message : "required fields : [username, topic]"});
     return;
   }
 
+  var token = tokenGenerator.createToken({uid: studentUsername, role : 'student'});
+
   res.json({
-    requestId : requestId
+    requestId : requestId,
+    token : token
   });
 
   var request = {

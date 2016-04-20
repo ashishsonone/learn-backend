@@ -1,5 +1,6 @@
 var firebaseConfig = {
-  baseUrl : "https://shining-inferno-4918.firebaseio.com/"
+  baseUrl : "https://shining-inferno-4918.firebaseio.com/",
+  secret : "6Uqqvzd5nXmc4di7m1G53atJa2jXJXouh46C63rp"
 };
 
 var mongoConfig = {

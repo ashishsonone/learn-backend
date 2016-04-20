@@ -4,15 +4,35 @@ index on "processed" for /sessions
 
 {
   "rules": {
-    ".read": true,
-    ".write": true,
     "channels" : {
       "$channel" : {
-          ".indexOn": "ts"
+        ".read" : true,
+        ".write" : true,
+        ".indexOn": "ts"
       }
     },
     "sessions" : {
+      ".read" : true,
+      ".write" : true,
       ".indexOn" : "processed"
+    },
+    "teaching" : {
+      ".read" : true,
+      ".write" : true
+    },
+    "newrequests" : {
+      "$date" : {
+        "$rid" : {
+          ".read" : "auth != null && auth.role == 'student'",
+          ".write" : "auth != null && auth.uid == data.child('username').val()"
+        }
+      }
+    },
+    "requests" : {
+      "$rid" : {
+        ".read" : true,
+        ".write" : true
+      }
     }
   }
 }
