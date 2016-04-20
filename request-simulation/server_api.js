@@ -27,6 +27,9 @@ console.log("waiting for teaching api requests @ '" + ipAddress + ":" + port + "
 
 var TeacherModel = models.TeacherModel;
 
+var rootRef = new Firebase(FIREBASE_BASE_URL);
+rootRef.auth(FIREBASE_SECRET); //IMPORTANT admin-level access to the firebase database(all references)
+
 var rootChannelRef = new Firebase(FIREBASE_BASE_URL + "/channels/");
 var rootRequestRef = new Firebase(FIREBASE_BASE_URL + "/requests/");
 var rootTeachingRef = new Firebase(FIREBASE_BASE_URL + "/teaching/");
@@ -34,7 +37,7 @@ var rootTeachingRef = new Firebase(FIREBASE_BASE_URL + "/teaching/");
 app.post('/requests', function(req, res){
   var studentUsername = req.body.username;
   var topic = req.body.topic;
-  
+
   var date = new Date().toISOString().slice(0, 10);
   var requestId = date + "/" + studentUsername + "_" + parseInt(new Date().getTime()/1000);
 
