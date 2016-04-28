@@ -1,0 +1,30 @@
+<html ng-app="firebaseApp">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="./firebase_browser.js"></script>
+    <title>Firebase Lazy Browser (save data)</title>
+  </head>
+  <body ng-controller="BrowserController">
+    <div class="container">
+      <h3>Firebase Lazy Browser for {{BASE_URL}}</h3>
+      <h4 style="color:green">Saves data &amp; time by loading only keys (ignoring values) of firebase location</h4>
+      <ol class="breadcrumb">
+        <li ng-repeat="crumb in breadcrumbs" ng-click="contract(crumb)" style="cursor:pointer"><u>{{crumb.name}}</u></li>
+      </ol>
+      
+      <a href="{{BASE_URL}}{{breadcrumbs[breadcrumbs.length-1].url}}" style="color:magenta" target="_blank">This node's firebase location (Don't click if expect a lot of data)</a>
+
+      <div class="container" id="notification" style="color:red" ng-show="showNotification">Notification : {{notification}}
+      </div>
+
+      <br><img src="./loading.gif" ng-show="showLoading" width="100">
+
+      <h5 ng-hide="showLoading">Showing {{fbKeys.length}} keys</h5><br>
+      <ul class="list-group" id="data" ng-hide="showLoading">
+        <li class="list-group-item"ng-repeat="key in fbKeys" ng-click="expand(key)" style="cursor:pointer">{{key}}</li>
+      </ul>
+    </div>
+  </body>
+</html>
