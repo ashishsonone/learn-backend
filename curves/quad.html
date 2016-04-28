@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var points = [[1,2], [4,3], [6,4], [7,4], [8,2], [10,0], [13,1]];
+points = points.map(function(e){return [e[0]*40, e[1]*40]});
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+var i;
+var pt;
+var pt2;
+var mid;
+
+
+ctx.strokeStyle="#FF0000";
+ctx.beginPath();
+pt = points[0];
+ctx.moveTo(pt[0], pt[1]);
+for(i=1; i<points.length; i++){
+   pt = points[i];
+   ctx.lineTo(pt[0], pt[1]);
+   ctx.stroke();
+}
+
+
+ctx.strokeStyle="#00FF00";
+ctx.beginPath();
+pt = points[0];
+ctx.moveTo(pt[0], pt[1]);
+for(i=1; i<points.length-1; i++){
+   pt = points[i];
+   pt2 = points[i+1];
+   mid = [(pt[0]+pt2[0])/2, (pt[1]+pt2[1])/2];
+   ctx.quadraticCurveTo(pt[0], pt[1], mid[0], mid[1]);
+   ctx.stroke();
+}
+</script> 
+
+</body>
+</html>
