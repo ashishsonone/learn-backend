@@ -8,7 +8,7 @@ var mongoConfig = {
 };
 
 var apiServerConfig = {
-  "host" : "192.168.0.23",
+  "host" : "192.168.0.24",
   "port" : 8002,
   "method" : "http"
 };

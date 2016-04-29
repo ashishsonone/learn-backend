@@ -1,6 +1,6 @@
-if(process.argv.length < 5){
-  console.log("usage : node <teacher.js> <username> <devicename> <token>");
-  console.log("e.g node teacher.js ashish windowsphone8 ashish_wp8");
+if(process.argv.length < 4){
+  console.log("usage : node <teacher.js> <username> <token>");
+  console.log("e.g node teacher.js ashish ashish_wp8");
   process.exit(0);
 }
 
@@ -20,8 +20,7 @@ var iAmBusy = false;
 var currentRequestId = null;
 
 var username = process.argv[2];
-var device = process.argv[3];
-var token = process.argv[4];
+var token = process.argv[3];
 
 var presenceRef = new Firebase(FIREBASE_BASE_URL + "/.info/connected");
 var sessionBaseRef = new Firebase(FIREBASE_BASE_URL + "/sessions/");
@@ -30,6 +29,8 @@ var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/channels/" + username);
 var sessionRef = sessionBaseRef.child(token);
 
 var offsetRef = new Firebase(FIREBASE_BASE_URL + ".info/serverTimeOffset");
+
+callTerminateApi(); //terminate any old sessions
 
 offsetRef.once("value", function(snap) {
   OFFSET = snap.val();
@@ -52,7 +53,6 @@ presenceRef.on('value', function(snapshot){
     sessionRef.onDisconnect().set({
       ts : ts,
       username : username,
-      device : device,
       online : false,
       processed : false
     });
@@ -60,7 +60,6 @@ presenceRef.on('value', function(snapshot){
     sessionRef.set({
       ts : ts,
       username : username,
-      device : device,
       online: true,
       processed : false
     });
@@ -68,7 +67,7 @@ presenceRef.on('value', function(snapshot){
 });
 
 function listenToChannel(){
-  console.log("listenToChannel entered start time=" + new Date(sessionStartTime));
+  console.log("listenToChannel entered start ts=" + sessionStartTime + "|" + FIREBASE_BASE_URL + "/channels/" + username);
   myChannelRef.orderByChild("ts").startAt(sessionStartTime).on('child_added', function(snapshot){
     var msg = snapshot.val();
     var s = {
@@ -82,8 +81,9 @@ function listenToChannel(){
 }
 
 function handleMessage(msg){
+  msg.id = msg.requestId;
   if(msg.type === "request"){
-    console.log("new request id=" + msg.id + ", details=" + msg.details);
+    console.log("new request id=" + msg.id + ", topic=" + msg.details.topic);
     if(iAmBusy){
       console.log("I AM BUSY : ignoring request id=" + msg.id);
       return;
@@ -140,22 +140,21 @@ function stdinListener(d){
   var m = d.toString().trim();
   if(m === 'stop'){
     console.log("terminating the session, stop listening to stdin");
-    callTerminateApi(currentRequestId);
+    callTerminateApi();
   }
   else{
     console.log("unknown command. Session continues...");
   }
 }
 
-function callTerminateApi(requestId){
+function callTerminateApi(){
   var body = {
-    username : username,
-    requestId : requestId
+    username : username
   };
 
   var options = {
     method : 'POST',
-    uri : API_SERVER_URL + "/terminate/",
+    uri : API_SERVER_URL + "/v1/live/requests/terminate",
     body : body,
     headers : {
       "Content-Type": "application/json",
@@ -165,12 +164,12 @@ function callTerminateApi(requestId){
 
   console.log("callTerminateApi calling with options=%j", options);
   request(options, function(err, res, body){
-    if(err){
-      console.log("callTerminateApi : error. Session continues.... %j", err);
-    }
-    else {
+    if(!err && res.statusCode == 200){
       console.log("callTerminateApi : success %j", body);
       stopInput();
+    }
+    else{
+      console.log("callTerminateApi : error. Session continues.... %j", err);
     }
   });
 }
