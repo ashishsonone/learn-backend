@@ -28,7 +28,14 @@ console.log("waiting for teaching api requests @ '" + ipAddress + ":" + port + "
 var TeacherModel = models.TeacherModel;
 
 var rootRef = new Firebase(FIREBASE_BASE_URL);
-rootRef.auth(FIREBASE_SECRET); //IMPORTANT admin-level access to the firebase database(all references)
+//IMPORTANT admin-level access to the firebase database(all references)
+rootRef.auth(FIREBASE_SECRET, function(error, authData) {
+  if (error) {
+    console.log("Login Failed! %j", error);
+  } else {
+    console.log("Login Succeeded! %j", authData);
+  }
+});
 
 var rootChannelRef = new Firebase(FIREBASE_BASE_URL + "/channels/");
 var rootRequestRef = new Firebase(FIREBASE_BASE_URL + "/requests/");
