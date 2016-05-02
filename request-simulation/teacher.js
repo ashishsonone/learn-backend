@@ -16,7 +16,6 @@ console.log("api server url : " + API_SERVER_URL);
 
 var OFFSET = 0;
 var sessionStartTime = null;
-var iAmBusy = false;
 var currentRequestId = null;
 
 var username = process.argv[2];
@@ -25,12 +24,29 @@ var token = process.argv[3];
 var presenceRef = new Firebase(FIREBASE_BASE_URL + "/.info/connected");
 var sessionBaseRef = new Firebase(FIREBASE_BASE_URL + "/sessions/");
 var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/channels/" + username);
+var myStatusChannelRef = new Firebase(FIREBASE_BASE_URL + "/teachers/" + username + "/status");
+
+myStatusChannelRef.on("value", function(snap){
+  var requestId = snap.val();
+  console.log("my status snap.val()=" + requestId + "| currentRequestId=" + currentRequestId);
+  if(!requestId || requestId === "free"){
+    console.log("Hurray I am a free soul");
+  }
+  else if(requestId === currentRequestId){
+    console.log("Hurray I already attending " + currentRequestId);
+  }
+  else{
+    console.log("Hurray I must resume " + requestId);
+    stopInput();
+    startInput(requestId);
+  }
+});
 
 var sessionRef = sessionBaseRef.child(token);
 
 var offsetRef = new Firebase(FIREBASE_BASE_URL + ".info/serverTimeOffset");
 
-callTerminateApi(); //terminate any old sessions
+//callTerminateApi(); //terminate any old sessions
 
 offsetRef.once("value", function(snap) {
   OFFSET = snap.val();
@@ -84,8 +100,8 @@ function handleMessage(msg){
   msg.id = msg.requestId;
   if(msg.type === "request"){
     console.log("new request id=" + msg.id + ", topic=" + msg.details.topic);
-    if(iAmBusy){
-      console.log("I AM BUSY : ignoring request id=" + msg.id);
+    if(currentRequestId){
+      console.log("I AM BUSY with " + currentRequestId + " | ignoring request id=" + msg.id);
       return;
     }
     var wait = 10 + Math.floor(Math.random() * 10); //wait for 10-20 seconds
@@ -143,7 +159,7 @@ function stdinListener(d){
     callTerminateApi();
   }
   else{
-    console.log("unknown command. Session continues...");
+    console.log("unknown command `" + m + "`");
   }
 }
 
@@ -174,16 +190,23 @@ function callTerminateApi(){
   });
 }
 
+var sessionPromptTimer = null;
+function sessionPrompt(){
+  console.log("ongoing session.... Type stop to terminate");
+}
+
 function startInput(requestId){
   currentRequestId = requestId;
-  iAmBusy = true;
   console.log("type 'stop' and enter to terminate the session id=" + currentRequestId);
   stdin.addListener("data", stdinListener);
+  clearInterval(sessionPromptTimer);
+  sessionPromptTimer = setInterval(sessionPrompt, 2000);
 }
 
 function stopInput(){
-  iAmBusy = false;
   currentRequestId = null;
   stdin.removeListener("data", stdinListener);
   console.log("Teaching Session over : waiting for further requests");
+  clearInterval(sessionPromptTimer);
+  sessionPromptTimer = null;
 }
