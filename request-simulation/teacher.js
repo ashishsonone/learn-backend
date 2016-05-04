@@ -31,6 +31,11 @@ myStatusChannelRef.on("value", function(snap){
   console.log("my status snap.val()=" + requestId + "| currentRequestId=" + currentRequestId);
   if(!requestId || requestId === ""){
     console.log("Hurray I am a free soul");
+    if(currentRequestId != null){
+      console.log("Terminated globally, must terminate locally");
+      //already terminated globally, so terminate here locally
+      stopInput();
+    }
   }
   else if(requestId === currentRequestId){
     console.log("Hurray I already attending " + currentRequestId);
@@ -99,7 +104,7 @@ function listenToChannel(){
 function handleMessage(msg){
   msg.id = msg.requestId;
   if(msg.type === "request"){
-    console.log("new request id=" + msg.id + ", topic=" + msg.details.topic);
+    console.log("new request id=" + msg.id + ", details=%j", msg.details);
     if(currentRequestId){
       console.log("I AM BUSY with " + currentRequestId + " | ignoring request id=" + msg.id);
       return;
