@@ -23,13 +23,13 @@ var token = process.argv[3];
 
 var presenceRef = new Firebase(FIREBASE_BASE_URL + "/.info/connected");
 var sessionBaseRef = new Firebase(FIREBASE_BASE_URL + "/sessions/");
-var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/channels/" + username);
+var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/teacher-channels/" + username);
 var myStatusChannelRef = new Firebase(FIREBASE_BASE_URL + "/teachers/" + username + "/status");
 
 myStatusChannelRef.on("value", function(snap){
   var requestId = snap.val();
   console.log("my status snap.val()=" + requestId + "| currentRequestId=" + currentRequestId);
-  if(!requestId || requestId === "free"){
+  if(!requestId || requestId === ""){
     console.log("Hurray I am a free soul");
   }
   else if(requestId === currentRequestId){
