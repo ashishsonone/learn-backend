@@ -51,8 +51,6 @@ var sessionRef = sessionBaseRef.child(token);
 
 var offsetRef = new Firebase(FIREBASE_BASE_URL + ".info/serverTimeOffset");
 
-//callTerminateApi(); //terminate any old sessions
-
 offsetRef.once("value", function(snap) {
   OFFSET = snap.val();
   console.log("OFFSET=" + OFFSET);
@@ -161,21 +159,23 @@ function stdinListener(d){
   var m = d.toString().trim();
   if(m === 'stop'){
     console.log("terminating the session, stop listening to stdin");
-    callTerminateApi();
+    callTerminateApi(currentRequestId);
   }
   else{
     console.log("unknown command `" + m + "`");
   }
 }
 
-function callTerminateApi(){
+function callTerminateApi(requestId){
   var body = {
-    username : username
+    username : username,
+    requestId : requestId,
+    role : "teacher"
   };
 
   var options = {
     method : 'POST',
-    uri : API_SERVER_URL + "/v1/live/requests/terminate",
+    uri : API_SERVER_URL + "/v1/live/requests/end",
     body : body,
     headers : {
       "Content-Type": "application/json",
