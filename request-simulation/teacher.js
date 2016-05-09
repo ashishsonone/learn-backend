@@ -17,6 +17,7 @@ console.log("api server url : " + API_SERVER_URL);
 var OFFSET = 0;
 var sessionStartTime = null;
 var currentRequestId = null;
+var currentRequestStatus = null;
 
 var username = process.argv[2];
 var token = process.argv[3];
@@ -25,6 +26,7 @@ var presenceRef = new Firebase(FIREBASE_BASE_URL + "/.info/connected");
 var sessionBaseRef = new Firebase(FIREBASE_BASE_URL + "/sessions/");
 var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/teacher-channels/" + username);
 var myStatusChannelRef = new Firebase(FIREBASE_BASE_URL + "/teachers/" + username + "/status");
+var teachingChannleRef = new Firebase(FIREBASE_BASE_URL + "/teaching/");
 
 myStatusChannelRef.on("value", function(snap){
   var requestId = snap.val();
@@ -41,9 +43,10 @@ myStatusChannelRef.on("value", function(snap){
     console.log("Hurray I already attending " + currentRequestId);
   }
   else{
-    console.log("Hurray I must resume " + requestId);
+    console.log("Hurray I must resume " + requestId + "| attaching a request status listener");
     stopInput();
-    startInput(requestId);
+    currentRequestId = requestId;
+    teachingChannleRef.child(requestId).child('status').on('value', requestStatusListener);
   }
 });
 
@@ -55,7 +58,7 @@ offsetRef.once("value", function(snap) {
   OFFSET = snap.val();
   console.log("OFFSET=" + OFFSET);
   if(sessionStartTime == null){
-    sessionStartTime = new Date().getTime() - 60*1000; //listen for messages from 60 secs before
+    sessionStartTime = new Date().getTime() + OFFSET - 60*1000; //listen for messages from 60 secs before
     console.log("sessionStartTime=" + sessionStartTime);
     listenToChannel();
   }
@@ -123,7 +126,10 @@ function handleMessage(msg){
   else if(msg.type === "assign"){
     console.log("assign response for request id=" + msg.id + ", student=" + msg.student);
     console.log("getting ready to take the session now !!");
-    startInput(msg.id);
+    startInput(msg.id, "assigned"); //directly start the session
+    
+    //currentRequestId set
+    teachingChannleRef.child(currentRequestId).child('status').on('value', requestStatusListener);
   }
   else{
     console.log("unknown message type=" + msg.type);
@@ -157,16 +163,50 @@ function stdinListener(d){
   // end with a linefeed.  so we (rather crudely) account for that  
   // with toString() and then trim()
   var m = d.toString().trim();
-  if(m === 'stop'){
+  if(currentRequestStatus === "assigned" && m === 'start'){
+    console.log("starting the session");
+    callStartApi(currentRequestId);
+  }
+  else if(currentRequestStatus === "started" && m === 'end'){
     console.log("terminating the session, stop listening to stdin");
-    callTerminateApi(currentRequestId);
+    callEndApi(currentRequestId);
   }
   else{
     console.log("unknown command `" + m + "`");
   }
 }
 
-function callTerminateApi(requestId){
+function callStartApi(requestId){
+  var body = {
+    username : username,
+    requestId : requestId,
+    role : "teacher"
+  };
+
+  var options = {
+    method : 'POST',
+    uri : API_SERVER_URL + "/v1/live/requests/start",
+    body : body,
+    headers : {
+      "Content-Type": "application/json",
+    },
+    json : true
+  };
+
+  console.log("callStartApi calling with body=%j", body);
+  request(options, function(err, res, body){
+    if(!err && res.statusCode == 200){
+      console.log("callStartApi : success %j changing currentRequestStatus to assigned", body);
+      //must already be at the prompt. Just change the prompt value from 'assigned' to 'started'
+      currentRequestStatus = "started";
+    }
+    else{
+      console.log("callStartApi : error. Session continues.... %j", err);
+    }
+  });
+}
+
+function callEndApi(requestId){
   var body = {
     username : username,
     requestId : requestId,
@@ -183,35 +223,88 @@ function callTerminateApi(requestId){
     json : true
   };
 
-  console.log("callTerminateApi calling with options=%j", options);
+  console.log("callEndApi calling with body=%j", body);
   request(options, function(err, res, body){
     if(!err && res.statusCode == 200){
-      console.log("callTerminateApi : success %j", body);
+      console.log("callEndApi : success %j", body);
       stopInput();
     }
     else{
-      console.log("callTerminateApi : error. Session continues.... %j", err);
+      console.log("callEndApi : error. Session continues.... %j", err);
     }
   });
 }
 
 var sessionPromptTimer = null;
 function sessionPrompt(){
-  console.log("ongoing session.... Type stop to terminate");
+  var prompt = currentRequestId + "|" + currentRequestStatus;
+  if(currentRequestStatus === "assigned"){
+    prompt += " Type 'start' to begin the session";
+  }
+  else if(currentRequestStatus === "started"){
+    prompt += " Type 'end' to terminate the session";
+  }
+  else{
+    prompt += " Unknown state";
+  }
+  console.log(prompt);
 }
 
-function startInput(requestId){
+function startInput(requestId, requestStatus){
   currentRequestId = requestId;
-  console.log("type 'stop' and enter to terminate the session id=" + currentRequestId);
+  currentRequestStatus = requestStatus;
+  
   stdin.addListener("data", stdinListener);
   clearInterval(sessionPromptTimer);
   sessionPromptTimer = setInterval(sessionPrompt, 2000);
 }
 
 function stopInput(){
+  if(currentRequestId){
+    console.log("stopInput : stop listening for status of " + currentRequestId);
+    teachingChannleRef.child(currentRequestId).child('status').off('value', requestStatusListener);
+  }
+  
   currentRequestId = null;
+  currentRequestStatus = null;
+  
   stdin.removeListener("data", stdinListener);
   console.log("Teaching Session over : waiting for further requests");
   clearInterval(sessionPromptTimer);
   sessionPromptTimer = null;
+}
+
+function requestStatusListener(snapshot){
+  //currentRequestId null means that this listener is not active
+  //currentRequestId won't be null here
+  
+  var requestStatus = snapshot.val();
+  console.log("requestStatusListener : requestStatus=" + requestStatus + "| currentRequestStatus=" + currentRequestStatus);
+  //also requestStatus will be non-null as listener attached when 'assigned' the request
+  if(currentRequestId && requestStatus){
+    if(requestStatus === currentRequestStatus){
+      console.log("requestStatusListener : same status=" + currentRequestStatus);
+    }
+    else if(requestStatus === "ended"){
+      //terminate
+      console.log("requestStatusListener : " + currentRequestId + "| terminated , must terminate locally");
+      //already terminated globally, so terminate here locally
+      stopInput();
+    }
+    else if(requestStatus === "assigned"){//newly assigned or resuming a 'assigned' request on restart
+      console.log("requestStatusListener : newly assigned or resuming a 'assigned' request on restart");
+      startInput(currentRequestId, requestStatus);
+    }
+    else if(requestStatus === "started" && currentRequestStatus === "assigned"){//current is 'assigned'(stdin listener active) and then session started
+      console.log("requestStatusListener : current 'assigned' (listner already acvtive); Now session has 'started'; just change the prompt");
+      currentRequestStatus = "started"; //just change the prompt
+    }
+    else if(requestStatus === "started"){ //currentRequestStatus is null
+      console.log("requestStatusListener : currentRequestStatus is null and session has 'started'; start the prompt");
+      startInput(currentRequestId, requestStatus);
+    }
+  }
+  else{
+    console.log("requestStatusListener : SHOULD NOT HAPPEN");
+  }
 }
