@@ -7,6 +7,7 @@ if(process.argv.length < 4){
 var Firebase = require('firebase');
 var request = require('request');
 var config = require('./config');
+var teacherUtils = require('./teacher_utils');
 
 var FIREBASE_BASE_URL = config.firebaseConfig.baseUrl;
 var API_SERVER_URL = config.apiServerConfig.method + "://" + 
@@ -18,6 +19,7 @@ var OFFSET = 0;
 var sessionStartTime = null;
 var currentRequestId = null;
 var currentRequestStatus = null;
+var stopWatch = new teacherUtils.StopWatch();
 
 var username = process.argv[2];
 var token = process.argv[3];
@@ -235,6 +237,58 @@ function callEndApi(requestId){
   });
 }
 
+function callUpdateApi(requestId, sessionDuration){
+  var body = {
+    username : username,
+    requestId : requestId,
+    role : "teacher",
+    sessionDuration : sessionDuration
+  };
+
+  var options = {
+    method : 'POST',
+    uri : API_SERVER_URL + "/v1/live/requests/update",
+    body : body,
+    headers : {
+      "Content-Type": "application/json",
+    },
+    json : true
+  };
+
+  //console.log("callUpdateApi calling with body=%j", body);
+  request(options, function(err, res, body){
+    if(!err && res.statusCode == 200){
+      console.log("callUpdateApi : success updated sessionDuration=" + body.sessionDuration + ", status=" + body.status);
+    }
+    else{
+      console.log("callUpdateApi : error. Session continues.... %j", err);
+    }
+  });
+}
+
+function callGetRequestApi(requestId, callback){
+  var options = {
+    method : 'GET',
+    uri : API_SERVER_URL + "/v1/live/requests/" + requestId,
+    headers : {
+      "Content-Type": "application/json",
+    },
+    json : true
+  };
+
+  //console.log("callUpdateApi calling with body=%j", body);
+  request(options, function(err, res, body){
+    if(!err && res.statusCode == 200){
+      console.log("callGetRequestApi : success with body %j", body);
+      callback(null, body);
+    }
+    else{
+      console.log("callGetRequestApi : error. Session continues.... %j", err);
+      callback(err);
+    }
+  });
+}
+
 var sessionPromptTimer = null;
 function sessionPrompt(){
   var prompt = currentRequestId + "|" + currentRequestStatus;
@@ -248,15 +302,30 @@ function sessionPrompt(){
     prompt += " Unknown state";
   }
   console.log(prompt);
+  
+  if(currentRequestStatus === "started"){
+    callUpdateApi(currentRequestId, stopWatch.getElapsedTime());
+  }
 }
 
 function startInput(requestId, requestStatus){
-  currentRequestId = requestId;
-  currentRequestStatus = requestStatus;
-  
-  stdin.addListener("data", stdinListener);
-  clearInterval(sessionPromptTimer);
-  sessionPromptTimer = setInterval(sessionPrompt, 2000);
+  callGetRequestApi(requestId, function(err, reqEntity){
+    if(!err){
+      currentRequestId = requestId;
+      currentRequestStatus = requestStatus;
+
+      stdin.addListener("data", stdinListener);
+      clearInterval(sessionPromptTimer);
+      sessionPromptTimer = setInterval(sessionPrompt, 10000);
+
+      var initDuration = reqEntity.sessionDuration || 0;
+      stopWatch.reset(initDuration);
+      stopWatch.resume();
+    }
+    else{
+      console.log("startInput error %j", err);
+    }
+  });
 }
 
 function stopInput(){
