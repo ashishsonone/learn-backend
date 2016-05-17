@@ -50,6 +50,14 @@ function StopWatch(){
   };
 }
 
+var oLog = console.log;
+
+myLog = function(){
+  arguments[0] = new Date() + " | " + arguments[0];
+  oLog.apply(this, arguments);
+};
+
 module.exports = {
-  StopWatch : StopWatch
+  StopWatch : StopWatch,
+  myLog : myLog
 };

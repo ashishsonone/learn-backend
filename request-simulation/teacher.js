@@ -9,6 +9,9 @@ var request = require('request');
 var config = require('./config');
 var teacherUtils = require('./teacher_utils');
 
+//override console.log
+console.log = teacherUtils.myLog;
+
 var FIREBASE_BASE_URL = config.firebaseConfig.baseUrl;
 var API_SERVER_URL = config.apiServerConfig.method + "://" + 
   config.apiServerConfig.host + ":" + config.apiServerConfig.port;
