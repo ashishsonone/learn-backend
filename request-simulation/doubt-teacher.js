@@ -61,7 +61,7 @@ connectionRef.on('value', function(snapshot){
 
 myDoubtQueueRef.on('value', function(snap){
   myDoubtQueue = snap.val();
-  console.log("myDoubtQueue = " + myDoubtQueue);
+  console.log("myDoubtQueue = %j", myDoubtQueue);
 });
 
 var stdin = process.openStdin();
@@ -71,26 +71,83 @@ function stdinListener(d){
   // with toString() and then trim()
   var m = d.toString().trim();
   
-  if(m === "status"){
-    console.log("status=" + myStatus + ", myDoubtQueue=" + myDoubtQueue);
+  var parts = m.split(' ');
+  var command = parts[0];
+
+  if(command === "status"){
+    console.log("status=" + myStatus + ", myDoubtQueue=%j", myDoubtQueue);
+  }
+  else if(command === "solve" || command === "unsolve"){
+    var doubtId = parts[1];
+    if(!doubtId){
+      console.log("command format is : |" + command + " <doubtId>| OR |" + command + " next|");
+      return;
+    }
+
+    if(doubtId === "next"){
+      if(myDoubtQueue && myDoubtQueue.length > 0){
+        doubtId = myDoubtQueue[0];
+        console.log("picked next doubt " + doubtId);
+      }
+      else{
+        console.log("no doubts in your doubtQueue");
+        return;
+      }
+    }
+
+    //doubtId set
+    console.log("handling " + command + " with " + doubtId );
+    handleDoubt(command === "solve", doubtId);
   }
   else{
     console.log("unknown command `" + m + "`");
   }
 }
 
+//Add command line listener
 stdin.addListener("data", stdinListener);
 
-function callEndApi(requestId){
+function handleDoubt(solved, doubtId){
+  callGetDoubtApi(doubtId, function(err, doubtEntity){
+    if(err){
+      console.log("Error retriving the doubtEntity");
+      return;
+    }
+
+    console.log("Retrieved doubt details %j", doubtEntity);
+    var status;
+    var response;
+    if(solved){
+      status = "solved";
+      response = {
+        description : "Look at image #1 for solution",
+        images : ["<solution-image-url-1>"]
+      };
+    }
+    else{
+      status = "unsolved";
+      response = {
+        description : "Unable to solve as it is out of syllabus. Please ask someone else",
+        images : []
+      };
+    }
+    console.log("ending " + doubtId + " with status=" + status);
+    callEndApi(doubtId, status, response);
+  });
+}
+
+function callEndApi(doubtId, status, response){
   var body = {
     username : username,
-    requestId : requestId,
-    role : "teacher"
+    doubtId : doubtId,
+    status : status,
+    description : response.description,
+    images : response.images
   };
 
   var options = {
     method : 'POST',
-    uri : API_SERVER_URL + "/v1/live/requests/end",
+    uri : API_SERVER_URL + "/v1/live/doubts/end",
     body : body,
     headers : {
       "Content-Type": "application/json",
@@ -102,47 +159,17 @@ function callEndApi(requestId){
   request(options, function(err, res, body){
     if(!err && res.statusCode == 200){
       console.log("callEndApi : success %j", body);
-      stopInput();
     }
     else{
-      console.log("callEndApi : error. Session continues.... %j", err);
+      console.log("callEndApi : error. Try again. err=%j, body=%j", err, body);
     }
   });
 }
 
-function callUpdateApi(requestId, sessionDuration){
-  var body = {
-    username : username,
-    requestId : requestId,
-    role : "teacher",
-    sessionDuration : sessionDuration
-  };
-
-  var options = {
-    method : 'POST',
-    uri : API_SERVER_URL + "/v1/live/requests/update",
-    body : body,
-    headers : {
-      "Content-Type": "application/json",
-    },
-    json : true
-  };
-
-  //console.log("callUpdateApi calling with body=%j", body);
-  request(options, function(err, res, body){
-    if(!err && res.statusCode == 200){
-      console.log("callUpdateApi : success updated sessionDuration=" + body.sessionDuration + ", status=" + body.status);
-    }
-    else{
-      console.log("callUpdateApi : error. Session continues.... %j", err);
-    }
-  });
-}
-
-function callGetRequestApi(requestId, callback){
+function callGetDoubtApi(doubtId, callback){
   var options = {
     method : 'GET',
-    uri : API_SERVER_URL + "/v1/live/requests/" + requestId,
+    uri : API_SERVER_URL + "/v1/live/doubts/" + doubtId,
     headers : {
       "Content-Type": "application/json",
     },
@@ -152,11 +179,11 @@ function callGetRequestApi(requestId, callback){
   //console.log("callUpdateApi calling with body=%j", body);
   request(options, function(err, res, body){
     if(!err && res.statusCode == 200){
-      console.log("callGetRequestApi : success with body %j", body);
+      //console.log("callGetDoubtApi : success with body %j", body);
       callback(null, body);
     }
     else{
-      console.log("callGetRequestApi : error. Session continues.... %j", err);
+      //console.log("callGetDoubtApi : err=%j, body=%j", err, body);
       callback(err);
     }
   });
