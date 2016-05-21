@@ -99,6 +99,15 @@ function stdinListener(d){
     console.log("handling " + command + " with " + doubtId );
     handleDoubt(command === "solve", doubtId);
   }
+  else if(command === "go"){
+    var newStatus = parts[1];
+    if(["active", "away"].indexOf(newStatus) < 0){
+      console.log("command format is : |" + command + " active| OR |" + command + " away|");
+      return;
+    }
+
+    callChangeStatusApi(newStatus);
+  }
   else{
     console.log("unknown command `" + m + "`");
   }
@@ -136,6 +145,33 @@ function handleDoubt(solved, doubtId){
   });
 }
 
+function callChangeStatusApi(newStatus){
+  var body = {
+    status : newStatus
+  };
+
+  var options = {
+    method : 'PUT',
+    uri : API_SERVER_URL + "/v1/live/teachers/me",
+    body : body,
+    headers : {
+      "Content-Type": "application/json",
+      "x-live-token": token
+    },
+    json : true
+  };
+
+  console.log("callChangeStatusApi calling with body=%j", body);
+  request(options, function(err, res, body){
+    if(!err && res.statusCode == 200){
+      console.log("callChangeStatusApi : success %j", body);
+    }
+    else{
+      console.log("callChangeStatusApi : error. Try again. err=%j, body=%j", err, body);
+    }
+  });
+}
+
 function callEndApi(doubtId, status, response){
   var body = {
     username : username,
@@ -151,6 +187,7 @@ function callEndApi(doubtId, status, response){
     body : body,
     headers : {
       "Content-Type": "application/json",
+      "x-live-token": token,
     },
     json : true
   };
