@@ -1,19 +1,24 @@
-var firebaseConfig = {
-  baseUrl : "https://dev-preppo.firebaseio.com/",
-  //baseUrl : "https://shining-inferno-4918.firebaseio.com/",
-  secret : "6Uqqvzd5nXmc4di7m1G53atJa2jXJXouh46C63rp"
-};
+"use strict"
+var ENV = process.env.ENV;
 
-var mongoConfig = {
-  dbUrl : "mongodb://192.168.0.24:27017/live"
-};
+var enumEnvironment = ['local', 'dev'];
 
-var ENV = 'dev';
+if(!ENV|| enumEnvironment.indexOf(ENV) == -1){
+  console.log("######ALARM######");
+  console.log("====environment variable 'ENV' must be one of [local, dev]====");
+  console.log("######ALARM######");
+  process.exit();
+}
+
 if(ENV === 'local'){
   var apiServerConfig = {
-    "host" : "192.168.0.24",
+    "host" : "127.0.0.1",
     "port" : 8002,
     "method" : "http"
+  };
+
+  var firebaseConfig = {
+    baseUrl : "https://shining-inferno-4918.firebaseio.com/",
   };
 }
 else if(ENV === 'dev'){
@@ -22,10 +27,13 @@ else if(ENV === 'dev'){
     "port" : 443,
     "method" : "https",
   };
+
+  var firebaseConfig = {
+    baseUrl : "https://dev-preppo.firebaseio.com/",
+  };
 }
 
 module.exports = {
   firebaseConfig : firebaseConfig,
-  mongoConfig : mongoConfig,
   apiServerConfig : apiServerConfig
 };

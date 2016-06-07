@@ -1,6 +1,6 @@
 if(process.argv.length < 4){
-  console.log("usage : node <teacher.js> <username> <token>");
-  console.log("e.g node teacher.js ashish ashish_wp8");
+  console.log("usage : ENV=<ENV> node <teacher.js> <username>");
+  console.log("e.g ENV=local node teacher.js 1626002601 fJraVF3c");
   process.exit(0);
 }
 
@@ -17,6 +17,7 @@ var API_SERVER_URL = config.apiServerConfig.method + "://" +
   config.apiServerConfig.host + ":" + config.apiServerConfig.port;
 
 console.log("api server url : " + API_SERVER_URL);
+console.log("firebase base url : " + FIREBASE_BASE_URL);
 
 var sessionStartTime = null;
 
@@ -43,6 +44,7 @@ connectionRef.on('value', function(snapshot){
   var ts = new Date().getTime();
 
   if(connected){
+    console.log("presence setting");
     presenceRef.onDisconnect().set({
       ts : ts,
       username : username,
