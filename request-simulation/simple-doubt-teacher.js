@@ -1,6 +1,5 @@
-if(process.argv.length < 4){
-  console.log("usage : ENV=<ENV> node <teacher.js> <username> <token>");
-  console.log("e.g ENV=local node teacher.js 1626002601 fJraVF3c");
+if(process.argv.length < 3){
+  console.log("usage : ENV=<ENV> node <teacher.js> <username>");
   process.exit(0);
 }
 
@@ -19,46 +18,17 @@ var API_SERVER_URL = config.apiServerConfig.method + "://" +
 console.log("api server url : " + API_SERVER_URL);
 console.log("firebase base url : " + FIREBASE_BASE_URL);
 
-var sessionStartTime = null;
-
 var myStatus = null;
 var myDoubtQueue = null;
 
 var username = process.argv[2];
-var token = process.argv[3];
 
-var connectionRef = new Firebase(FIREBASE_BASE_URL + "/.info/connected");
-var presenceRef = new Firebase(FIREBASE_BASE_URL + "/teacher-presence/").child(token);
-var myChannelRef = new Firebase(FIREBASE_BASE_URL + "/teacher-channels/" + username);
 var myStatusChannelRef = new Firebase(FIREBASE_BASE_URL + "/teachers/" + username + "/status");
 var myDoubtQueueRef = new Firebase(FIREBASE_BASE_URL + "/teachers/" + username + "/doubtQueue");
 
 myStatusChannelRef.on("value", function(snap){
   myStatus = snap.val();
   console.log("my status snap.val()=" + myStatus);  
-});
-
-connectionRef.on('value', function(snapshot){
-  var connected = snapshot.val();
-  console.log("connection state = " + connected);
-  var ts = new Date().getTime();
-
-  if(connected){
-    console.log("presence setting");
-    presenceRef.onDisconnect().set({
-      ts : ts,
-      username : username,
-      online : false,
-      processed : false
-    });
-
-    presenceRef.set({
-      ts : ts,
-      username : username,
-      online: true,
-      processed : false
-    });
-  }
 });
 
 myDoubtQueueRef.on('value', function(snap){
@@ -131,14 +101,14 @@ function handleDoubt(solved, doubtId){
     if(solved){
       status = "solved";
       response = {
-        description : "Look at image #1 for solution",
+        description : "Look attached solution image",
         images : ["<solution-image-url-1>"]
       };
     }
     else{
       status = "unsolved";
       response = {
-        description : "Unable to solve as it is out of syllabus. Please ask someone else",
+        description : "Unable to solve as it is out of my ability",
         images : []
       };
     }
@@ -154,11 +124,10 @@ function callChangeStatusApi(newStatus){
 
   var options = {
     method : 'PUT',
-    uri : API_SERVER_URL + "/v1/live/teachers/me",
+    uri : API_SERVER_URL + "/v1/live/teachers/" + username,
     body : body,
     headers : {
       "Content-Type": "application/json",
-      "x-live-token": token
     },
     json : true
   };
@@ -189,7 +158,6 @@ function callEndApi(doubtId, status, response){
     body : body,
     headers : {
       "Content-Type": "application/json",
-      "x-live-token": token,
     },
     json : true
   };
